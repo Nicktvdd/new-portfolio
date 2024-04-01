@@ -1,7 +1,12 @@
-const PortfolioPage = () => {
+"use client"
+import {motion} from "framer-motion"
+
+const ProjectPage = () => {
   return (
-	<div className="">PortfolioPage</div>
+    <motion.div className="h-full" initial={{ y: "-200vh" }} animate={{ y: "0%" }} transition={{ duration: 1 }} >
+      Project
+    </motion.div>
   );
 }
 
-export default PortfolioPage;
+export default ProjectPage;
