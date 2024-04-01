@@ -33,16 +33,6 @@ const Navbar = () => {
             opacity: 1,
         },
     }
-
-    const listVariants = {
-        open: {
-            x:0,
-        },
-        closed: {
-            x:"100vw",
-        },
-    }
-
     const bottomVariants = {
         open: {
             rotate: -45,
@@ -50,6 +40,29 @@ const Navbar = () => {
         },
         closed: {
             rotate: 0,
+        },
+    }
+
+    const listVariants = {
+        open: {
+            x: 0,
+            transition:{
+                when:"beforeChildren",
+                staggerChildren: 0.2,
+            }
+        },
+        closed: {
+            x: "100vw",
+        },
+    }
+    const listItemVariants = {
+        open: {
+            x:0,
+            opacity: 1,
+        },
+        closed: {
+            x:-20,
+            opacity: 0,
         },
     }
 
@@ -84,7 +97,7 @@ const Navbar = () => {
             <div className="md:hidden">
                 {/* MENU BUTTON*/}
                 <button className="w-10 h-8 flex flex-col justify-between z-50 relative"
-                onClick={() => setOpen((prev) => !prev)}
+                    onClick={() => setOpen((prev) => !prev)}
                 >
                     <motion.div
                         variants={topVariants}
@@ -106,9 +119,11 @@ const Navbar = () => {
                 {open && (
                     <motion.div variants={listVariants} initial="closed" animate="open" className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40">
                         {links.map((link) => (
-                            <Link href={link.href} key={link.name}>
-                                {link.name}
-                            </Link>
+                            <motion.div variants={listItemVariants} className="" key={link.name}>
+                                <Link href={link.href} key={link.name}>
+                                    {link.name}
+                                </Link>
+                            </motion.div>
                         ))}
                     </motion.div>
                 )}
