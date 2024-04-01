@@ -18,10 +18,10 @@ const AboutPage = () => {
   const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
 
   return (
-    <motion.div className="h-full" 
-    initial={{ y: "-200vh" }} 
-    animate={{ y: "0%" }} 
-    transition={{ duration: 1 }} >
+    <motion.div className="h-full"
+      initial={{ y: "-200vh" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 1 }} >
       {/* CONTAINER */}
       <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
         {/* TEXT CONTAINER */}
@@ -170,20 +170,20 @@ const AboutPage = () => {
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
                   <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Senior JavaScript Engineer
+                    Full Stack Development
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
-                    I led web development, offering expertise in JavaScript
-                    frameworks.{" "}
+                    Studying all concepts of Full Stack Development.
+                    Building web apps with Typescript, Express, React, MongoDB and more.{" "}
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2024 - Present
+                    2023 - 2024{" "}
                   </div>
                   {/* JOB COMPANY */}
                   <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
-                    Apple
+                    University of Helsinki
                   </div>
                 </div>
                 {/* CENTER */}
@@ -213,20 +213,21 @@ const AboutPage = () => {
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
                   <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Senior React Developer
+                    Software Engineering
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
-                    I spearheaded React-based application development,
-                    leveraging advanced skills.{" "}
+                    Peer-to-peer learning in a project-based curriculum with Low-level programming in C and C++.
+                    System Administration, Team communication, version control with Git, Task automation,
+                    and peer-review testing{" "}
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2019 - 2024{" "}
+                    2022 - 2024{" "}
                   </div>
                   {/* JOB COMPANY */}
                   <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
-                    Microsoft
+                    Hive
                   </div>
                 </div>
               </div>
@@ -240,12 +241,12 @@ const AboutPage = () => {
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
-                    I provided web solutions, applying a range of technologies
+                    Providing web solutions, applying a range of technologies
                     to address client requirements.{" "}
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2010 - 2019{" "}
+                    2022 - Present{" "}
                   </div>
                 </div>
                 {/* CENTER */}
