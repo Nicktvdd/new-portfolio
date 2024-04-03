@@ -31,7 +31,9 @@ const AboutPage = () => {
             {/* BIOGRAPHY TITLE */}
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             <p className="text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos pariatur inventore, nihil cumque atque repellendus libero! Ad delectus, iusto consequuntur impedit praesentium voluptate dignissimos tempora error odit. Quae, aut?
+              I'm a Full Stack Developer with a passion for learning. I have a background in Sport Science and Education.
+              I have experience in building web applications with
+              Typescript, Express, React, and MongoDB. 
             </p>
             {/* SVG */}
             <motion.svg
@@ -115,6 +117,12 @@ const AboutPage = () => {
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Docker
+              </div>
+              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+                Git
+              </div>
+              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+                Svelte(Kit)
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Git

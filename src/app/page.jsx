@@ -16,13 +16,12 @@ const Homepage = () => {
         <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
           {/* TITLE */}
           <h1 className="text-4xl md:text-6xl font-bold">
-            Well-rounded developer with exceptional interpersonal skills.
+            Well-rounded Full-Stack Development Teamplayer.
           </h1>
           {/* DESCRIPTION*/}
           <p className="md:text-xl">
-            My favorite thing is learning and I love to share my knowledge with others.
-            I am a team player and I am always looking for ways to improve myself and my team.
-
+            My true passion lies in learning. I eagerly embrace new challenges and skills, adventuring into unfamiliar territory with enthusiasm.
+            I'm a team player and always looking for ways to improve myself and my team. 
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4">
