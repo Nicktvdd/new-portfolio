@@ -82,7 +82,7 @@ const Navbar = () => {
                 </Link>
             </div>
             {/* SOCIALS */}
-            <div className="hidden md:flex gap-4 w-1/3">
+            <div className="hidden md:flex gap-5 w-1/3 justify-end">
                 <Link href="https://www.linkedin.com/in/nick-van-den-dungen/">
                     <Image src="/linkedin.png" alt="" width={50} height={50} />
                 </Link>

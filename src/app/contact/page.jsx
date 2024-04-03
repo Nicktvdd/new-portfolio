@@ -32,7 +32,7 @@ const ContactPage = () => {
         }
       );
   };
-
+  
   return (
     <motion.div
       className="h-full"
@@ -72,6 +72,7 @@ const ContactPage = () => {
             rows={6}
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
+            autoFocus
           />
           <span>My mail address is:</span>
           <input
