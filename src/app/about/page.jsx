@@ -264,9 +264,9 @@ const AboutPage = () => {
           </div>
         </div>
         {/* SVG CONTAINER */}
-{/*         <div className="hidden lg:block w-1/3 sticky top-0 z-30 xl:w-1/2">
+        <div className="hidden lg:block w-1/3 sticky top-0 z-30 xl:w-1/2">
           <AboutSVG scrollYProgress={scrollYProgress} />
-        </div> */}
+        </div>
       </div>
     </motion.div>
   );
