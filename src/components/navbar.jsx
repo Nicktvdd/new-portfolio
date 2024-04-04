@@ -84,13 +84,13 @@ const Navbar = () => {
             {/* SOCIALS */}
             <div className="hidden md:flex gap-5 w-1/3 justify-end">
                 <Link href="https://www.linkedin.com/in/nick-van-den-dungen/">
-                    <Image src="/linkedin.png" alt="" width={50} height={50} />
+                    <Image src="/linkedin.svg" alt="" width={30} height={30} />
                 </Link>
                 <Link href="https://github.com/Nicktvdd">
-                    <Image src="/github.png" alt="" width={50} height={50} />
+                    <Image src="/github.svg" alt="" width={30} height={30} />
                 </Link>
                 <Link href="mailto:nicktvdd@gmail.com">
-                    <Image src="/mail.png" alt="" width={50} height={50} />
+                    <Image src="/mail.svg" alt="" width={30} height={30} />
                 </Link>
             </div>
             {/* RESPONSIVE MENU */}

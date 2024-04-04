@@ -7,7 +7,7 @@ import { useRef } from "react";
 const items = [
   {
     id: 1,
-    color: "from-red-300 to-blue-300",
+    color: "from-teal-300 to-orange-300",
     title: "D&D App",
     desc: "I'm Building a Dungeons and Dragons app with Kotlin and Compose in Android Studio, My goal is to create a comprehensive roleplaying platform, complete with all features, a user-friendly interface, and all the tools you need as a player and game master.",
     img: "centaur-svgrepo-com.svg",
@@ -15,7 +15,7 @@ const items = [
   },
   {
     id: 2,
-    color: "from-blue-300 to-violet-300",
+    color: "from-orange-300 to-pink-300",
     title: "TechTec Website",
     desc: "Created a website for a fast growing company called TechTec, a company that specializes in educating people in the field of HVAC. The website is responsible for most of the contact with the applicants for the courses. It has resulted in a substantial growth in interest. The website is build with Wordpress, PHP and Elementor. Catering to the needs of the client, I created a website that is easy to navigate, informative and visually appealing.",
     img: "/techtec.png",
@@ -23,7 +23,7 @@ const items = [
   },
   {
     id: 3,
-    color: "from-violet-300 to-purple-300",
+    color: "from-pink-300 to-emerald-300",
     title: "The Mocks Website",
     desc: "The Mocks is a Rock & Roll band from the Netherlands. I created a website for them using Wordpress, PHP and Elementor. The website is designed to be visually appealing, and has a Rock & Roll feeling. It includes a music player, custom tour plug-in, and a contact form.",
     img: "/themocks.png",
@@ -31,7 +31,7 @@ const items = [
   },
   {
     id: 4,
-    color: "from-purple-300 to-red-300",
+    color: "from-emerald-300 to-teal-300",
     title: "MiniShell",
     desc: "MiniShell is a simple shell written in C. It is a project for the course at Hive Helsinki, a 42 school. The shell is capable of executing commands, piping, and redirecting input and output. It also has a history feature, and can run in the background.",
     img: "/bash-icon-svgrepo-com.svg",
@@ -58,7 +58,7 @@ const PortfolioPage = () => {
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
+            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-emerald-300 to-teal-300" />
             {items.map((item) => (
               <div
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
