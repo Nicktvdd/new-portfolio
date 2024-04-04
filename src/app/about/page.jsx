@@ -17,6 +17,31 @@ const AboutPage = () => {
   const experienceRef = useRef();
   const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
 
+  const SkillItem = ({ skill }) => (
+    <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+      {skill}
+    </div>
+  )
+
+  const SoftSkillItem = ({ skill }) => (
+    <div className="rounded p-2 text-sm cursor-pointer bg-white text-black hover:bg-black hover:text-white">
+      {skill}
+    </div>
+  )
+
+  const skills = [
+    'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'SCSS', 'Tailwind CSS',
+    'MongoDB', 'Node.js', 'Express.js', 'Kotlin', 'Ktor', 'Framer Motion',
+    'Vite', 'Docker', 'Git', 'Svelte(Kit)', 'Git', 'Github Actions', 'Jest', 'Cypress'
+  ]
+
+  const softskills = [
+    'Active Learning', 'Independence', 'Communication', 'Public speaking', 'Teamwork',
+    'Problem-solving', 'Critical thinking',
+    'Adaptability', 'Time management', 'Leadership', 'Empathy', 'Creativity'
+  ]
+
+
   return (
     <motion.div className="h-full"
       initial={{ y: "-200vh" }}
@@ -31,9 +56,12 @@ const AboutPage = () => {
             {/* BIOGRAPHY TITLE */}
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             <p className="text-lg">
-              I'm a Full Stack Developer with a passion for learning. I have a background in Sport Science and Education.
-              I have experience in building web applications with
-              Typescript, Express, React, and MongoDB. 
+              Hey there! 👋 I'm a Full-Stack Developer who stumbled into tech because I love solving problems and creating meaningful things.<br/><br/>
+              What excites me about Full-Stack Development is mixing different tools like Typescript, Express, React, and MongoDB. It's like being a chef, but instead of food, I'm cooking up websites and apps.<br/><br/>
+              When I'm not coding, you'll find me engaged in community-building. I organize events where we learn from each other. I also teach programming to kids, entrepreneurs and more. It's all about sharing knowledge and having a good time.<br/><br/>
+              My big dream? To use my tech skills for good, like helping the environment or improving people's health. I really believe that technology can make the world a better place, and I want to be a part of that.<br/><br/>
+              To keep up with the fast-paced tech world, I'm always learning new things. But at the end of the day, my approach to coding is pretty simple: start from scratch, team up with awesome folks, and never stop learning.<br/><br/>
+              I'm super excited about what the future holds and the chance to make a positive impact! Let's build awesome things together! ✨
             </p>
             {/* SVG */}
             <motion.svg
@@ -76,57 +104,18 @@ const AboutPage = () => {
               animate={isSkillRefInView ? { x: 0 } : {}}
               className="flex gap-4 flex-wrap"
             >
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                JavaScript
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                TypeScript
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                React.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Next.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                SCSS
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Tailwind CSS
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                MongoDB
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Node.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Express.js
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Kotlin
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Ktor
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Framer Motion
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Vite
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Docker
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Git
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Svelte(Kit)
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Git
-              </div>
+              {skills.map((skill, index) => (
+                <SkillItem key={index} skill={skill} />
+              ))}
+            </motion.div>
+            <motion.div
+              initial={{ x: "-300px" }}
+              animate={isSkillRefInView ? { x: 0 } : {}}
+              className="flex gap-4 flex-wrap"
+            >
+              {softskills.map((skill, index) => (
+                <SoftSkillItem key={index} skill={skill} />
+              ))}
             </motion.div>
             {/* SKILL SCROLL SVG */}
             <motion.svg
