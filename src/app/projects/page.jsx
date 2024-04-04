@@ -17,7 +17,7 @@ const items = [
     id: 2,
     color: "from-orange-300 to-pink-300",
     title: "TechTec Website",
-    desc: "Created a website for a fast growing company called TechTec, a company that specializes in educating people in the field of HVAC. The website is responsible for most of the contact with the applicants for the courses. It has resulted in a substantial growth in interest. The website is build with Wordpress, PHP and Elementor. Catering to the needs of the client, I created a website that is easy to navigate, informative and visually appealing.",
+    desc: "Created a website for a fast growing company called TechTec, a company that specializes in educating people in the field of HVAC. The website is responsible for most of the contact with the applicants for the courses. It has resulted in a substantial growth in interest. The website is build with Wordpress, PHP and Elementor.",
     img: "/techtec.png",
     link: "https://techtec.nl/",
   },
