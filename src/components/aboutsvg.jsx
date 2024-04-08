@@ -1,6 +1,5 @@
 "use client"
 
-import Link from 'next/link'
 import { motion, useTransform } from 'framer-motion'
 
 const AboutSVG = ({ scrollYProgress }) => {
@@ -8,12 +7,11 @@ const AboutSVG = ({ scrollYProgress }) => {
   const rotateForward2 = useTransform(scrollYProgress, [0, 1], [0, 720]);
   const rotateForward3 = useTransform(scrollYProgress, [0, 1], [0, 1440]);
   const rotateBackward1 = useTransform(scrollYProgress, [0, 1], [0, -360]);
-  const rotateBackward2 = useTransform(scrollYProgress, [0, 1], [0, -720]);
-  const rotateBackward3 = useTransform(scrollYProgress, [0, 1], [0, -1440]);
+
   return (
     <svg 
-    width="800px" 
-    height="800px" 
+    width="700px" 
+    height="700px" 
     viewBox="0 0 1024 1024" 
     version="1.1" 
     xmlns="http://www.w3.org/2000/svg">
