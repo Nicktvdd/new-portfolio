@@ -21,7 +21,7 @@ const Homepage = () => {
           {/* DESCRIPTION*/}
           <p className="md:text-xl">
             My true passion lies in learning. I eagerly embrace new challenges and skills, adventuring into unfamiliar territory with enthusiasm.
-            I'm a team player and always looking for ways to improve myself and my team. 
+            I'm a team player and always looking for ways to improve myself and my team.
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4">
@@ -38,6 +38,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+      <Analytics />
     </motion.div>
   )
 }
