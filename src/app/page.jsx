@@ -38,7 +38,6 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <Analytics />
     </motion.div>
   )
 }
