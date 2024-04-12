@@ -17,7 +17,7 @@ const items = [
     id: 2,
     color: "from-orange-300 to-pink-300",
     title: "TechTec Website",
-    desc: "Created a website for a fast growing company called TechTec, a company that specializes in educating people in the field of HVAC. The website is responsible for most of the contact with the applicants for the courses. It has resulted in a substantial growth in interest. The website is build with Wordpress, PHP and Elementor.",
+    desc: "A website for a fast growing company called TechTec, a company that specializes in educating people in the field of HVAC. The website is responsible for most of the contact with the applicants for the courses. It has resulted in a substantial growth in interest. The website is build with Wordpress, PHP and Elementor.",
     img: "/techtec.png",
     link: "https://techtec.nl/",
   },
@@ -93,7 +93,7 @@ const PortfolioPage = () => {
                   <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px] p-4">
                     <Image src={item.img} alt="" fill />
                   </div>
-                  <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px] p-4">
+                  <p className="w-80 text-sm md:w96 md:text-md lg:w-[500px] lg:text-lg xl:w-[600px] p-4">
                     {item.desc}
                   </p>
                   <Link href={item.link} className="flex justify-end p-4">
@@ -105,8 +105,8 @@ const PortfolioPage = () => {
           </motion.div>
         </div>
       </div>
-      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
-        <h1 className="text-8xl">Let's collaborate!</h1>
+      <div className="w-screen h-screen flex flex-col gap-4 md:gap-16 items-center justify-center text-center">
+        <h1 className="text-4xl md:text-8xl">Let's collaborate!</h1>
         <div className="relative">
           <motion.svg
             animate={{ rotate: 360 }}
