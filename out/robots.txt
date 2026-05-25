@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.nickvandendungen.com
+Sitemap: https://www.nickvandendungen.com/sitemap.xml

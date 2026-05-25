@@ -67,7 +67,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px48 text-xl">
+        <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
             {/* LINKS */}
             <div className="hidden md:flex gap-4 w-1/3">
                 {links.map(link => (
@@ -75,7 +75,7 @@ const Navbar = () => {
                 ))}
             </div>
             {/* LOGO */}
-            <div className="md:hidden lg:flex xl:-1/3 xl:justify-center">
+            <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
                 <Link href="/" className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center">
                     <span className="text-white mr-1">Nickvandendungen</span>
                     <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">.com</span>
@@ -83,21 +83,34 @@ const Navbar = () => {
             </div>
             {/* SOCIALS */}
             <div className="hidden md:flex gap-5 w-1/3 justify-end">
-                <Link href="https://www.linkedin.com/in/nick-van-den-dungen/">
+                <Link
+                    href="https://www.linkedin.com/in/nick-van-den-dungen/"
+                    aria-label="LinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <Image src="/linkedin.svg" alt="" width={30} height={30} />
                 </Link>
-                <Link href="https://github.com/Nicktvdd">
+                <Link
+                    href="https://github.com/Nicktvdd"
+                    aria-label="GitHub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <Image src="/github.svg" alt="" width={30} height={30} />
                 </Link>
-                <Link href="mailto:nicktvdd@gmail.com">
+                <Link href="mailto:nicktvdd@gmail.com" aria-label="Email">
                     <Image src="/mail.svg" alt="" width={30} height={30} />
                 </Link>
             </div>
             {/* RESPONSIVE MENU */}
             <div className="md:hidden">
                 {/* MENU BUTTON*/}
-                <button className="w-10 h-8 flex flex-col justify-between z-50 relative"
+                <button
+                    className="w-10 h-8 flex flex-col justify-between z-50 relative"
                     onClick={() => setOpen((prev) => !prev)}
+                    aria-label={open ? "Close menu" : "Open menu"}
+                    aria-expanded={open}
                 >
                     <motion.div
                         variants={topVariants}
@@ -120,7 +133,7 @@ const Navbar = () => {
                     <motion.div variants={listVariants} initial="closed" animate="open" className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40">
                         {links.map((link) => (
                             <motion.div variants={listItemVariants} className="" key={link.name}>
-                                <Link href={link.href} key={link.name}>
+                                <Link href={link.href} onClick={() => setOpen(false)}>
                                     {link.name}
                                 </Link>
                             </motion.div>

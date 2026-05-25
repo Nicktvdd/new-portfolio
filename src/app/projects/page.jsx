@@ -4,38 +4,47 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
+// TODO: swap placeholder images for real screenshots of Portfolio and Transcendence.
 const items = [
   {
     id: 1,
     color: "from-teal-300 to-orange-300",
-    title: "D&D App",
-    desc: "I'm Building a Dungeons and Dragons app with Kotlin and Compose in Android Studio, My goal is to create a comprehensive roleplaying platform, complete with all features, a user-friendly interface, and all the tools you need as a player and game master.",
-    img: "centaur-svgrepo-com.svg",
-    link: "https://github.com/Nicktvdd/DnD-Api",
+    title: "Portfolio Website",
+    desc: "A fast, responsive portfolio site built with Next.js (App Router), Framer Motion, and Tailwind CSS. Optimized for load performance, clean asset handling, and SEO. Live at nickvandendungen.com.",
+    img: "/portfolio.png",
+    link: "https://github.com/Nicktvdd/new-portfolio",
   },
   {
     id: 2,
     color: "from-orange-300 to-pink-300",
-    title: "TechTec Website",
-    desc: "A website for a fast growing company called TechTec, a company that specializes in educating people in the field of HVAC. The website is responsible for most of the contact with the applicants for the courses. It has resulted in a substantial growth in interest. The website is build with Wordpress, PHP and Elementor.",
-    img: "/techtec.png",
-    link: "https://techtec.nl/",
+    title: "Transcendence (Pong)",
+    desc: "Hive Helsinki capstone. A real-time 3D multiplayer Pong (Three.js + Vanilla JS) with user authentication and back-end microservices in Django and PostgreSQL.",
+    img: "/pong.png",
+    link: "https://github.com/Nicktvdd/transcendence",
   },
   {
     id: 3,
     color: "from-pink-300 to-emerald-300",
-    title: "The Mocks Website",
-    desc: "The Mocks is a Rock & Roll band from the Netherlands. I created a website for them using Wordpress, PHP and Elementor. The website is designed to be visually appealing, and has a Rock & Roll feeling. It includes a music player, custom tour plug-in, and lots of media",
-    img: "/themocks.png",
-    link: "https://themocksofficial.com/",
+    title: "DnD Procedural Generator",
+    desc: "A type-safe REST API in Kotlin using custom algorithms for procedural Dungeons & Dragons character generation. Clean separation of data layer and business logic.",
+    img: "/centaur-svgrepo-com.svg",
+    link: "https://github.com/Nicktvdd/DnD-Api",
   },
   {
     id: 4,
-    color: "from-emerald-300 to-teal-300",
+    color: "from-emerald-300 to-cyan-300",
     title: "MiniShell",
-    desc: "MiniShell is a simple shell written in C. It is a project for the course at Hive Helsinki, a 42 school. The shell is capable of executing commands, piping, and redirecting input and output. It also has a history feature, and can run in the background.",
+    desc: "A Bash-like shell environment written from scratch in C. Implements command execution, pipes, redirections, and signal handling using system forks. Hive Helsinki project.",
     img: "/bash-icon-svgrepo-com.svg",
     link: "https://github.com/Nicktvdd/MiniShell",
+  },
+  {
+    id: 5,
+    color: "from-cyan-300 to-teal-300",
+    title: "TechTec Website",
+    desc: "A WordPress/PHP/Elementor site for TechTec, an HVAC education company. The site drives course applications and has resulted in substantial growth in interest.",
+    img: "/techtec.png",
+    link: "https://techtec.nl/",
   },
 ];
 
@@ -43,7 +52,8 @@ const PortfolioPage = () => {
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+  // 5 project panels + 1 intro spacer = 6 panels of 100vw. Scroll (6-1)/6 = ~83.33%.
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-83.33%"]);
 
   return (
     <motion.div
@@ -52,7 +62,7 @@ const PortfolioPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-[600vh] relative" ref={ref}>
+      <div className="h-[700vh] relative" ref={ref}>
         <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
           Check out my projects 
           <motion.svg
@@ -91,14 +101,27 @@ const PortfolioPage = () => {
                     {item.title}
                   </h1>
                   <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px] p-4">
-                    <Image src={item.img} alt="" fill />
+                    <Image
+                      src={item.img}
+                      alt={`${item.title} preview`}
+                      fill
+                      sizes="(min-width: 1280px) 600px, (min-width: 1024px) 500px, (min-width: 768px) 384px, 320px"
+                      className="object-contain"
+                    />
                   </div>
-                  <p className="w-80 text-sm md:w96 md:text-md lg:w-[500px] lg:text-lg xl:w-[600px] p-4">
+                  <p className="w-80 text-sm md:w-96 md:text-md lg:w-[500px] lg:text-lg xl:w-[600px] p-4">
                     {item.desc}
                   </p>
-                  <Link href={item.link} className="flex justify-end p-4">
-                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">Check it out!</button>
-                  </Link>
+                  <div className="flex justify-end p-4">
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded"
+                    >
+                      Check it out!
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -106,7 +129,7 @@ const PortfolioPage = () => {
         </div>
       </div>
       <div className="w-screen h-screen flex flex-col gap-4 md:gap-16 items-center justify-center text-center">
-        <h1 className="text-4xl md:text-8xl">Let's collaborate!</h1>
+        <h1 className="text-4xl md:text-8xl">Let&apos;s collaborate!</h1>
         <div className="relative">
           <motion.svg
             animate={{ rotate: 360 }}
@@ -121,7 +144,7 @@ const PortfolioPage = () => {
               />
             </defs>
             <text fill="#000">
-              <textPath xlinkHref="#circlePath" className="text-xl">
+              <textPath href="#circlePath" className="text-xl">
                 Full-Stack Developer & awesome guy &
               </textPath>
             </text>

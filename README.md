@@ -3,4 +3,4 @@ Check out the live version on https://www.nickvandendungen.com/
 Created with Next.js, Framer-motion and Tailwind CSS.
 
 Frontpage:
-![image](https://github.com/Nicktvdd/new-portfolio/assets/5775657/b164653f-5945-4d28-8a84-93fc03934a0c)
+![image](https://github.com/user-attachments/assets/966720e1-2840-4875-adbc-fa19b370566e)
