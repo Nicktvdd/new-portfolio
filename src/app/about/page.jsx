@@ -4,43 +4,94 @@ import AboutSVG from "@/components/aboutsvg";
 import { motion, useInView, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-const skills = [
-  "Python", "Django", "JavaScript", "TypeScript", "React", "Next.js",
-  "Tailwind CSS", "Node.js", "PostgreSQL", "TimescaleDB", "Docker", "GCP",
-  "GitHub Actions", "Ansible", "Git", "C", "C++", "Kotlin", "Jest", "Cypress",
-  "Framer Motion",
+const skillCategories = [
+  {
+    category: "Web & Mobile Interfaces",
+    items: [
+      "TypeScript",
+      "React",
+      "React Native",
+      "Expo",
+      "Next.js",
+      "Svelte",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+  },
+  {
+    category: "Backend, Data & Cloud",
+    items: [
+      "Python",
+      "FastAPI",
+      "Django",
+      "Node.js",
+      "Kotlin",
+      "PostgreSQL",
+      "TimescaleDB",
+      "Docker",
+      "GCP",
+      "AWS",
+      "Linux",
+    ],
+  },
+  {
+    category: "Systems & Low-Level Rigor",
+    items: [
+      "C",
+      "C++",
+      "Unix / POSIX",
+      "Memory Management",
+    ],
+  },
+  {
+    category: "DevOps, Quality & AI Workflows",
+    items: [
+      "GitHub Actions",
+      "Ansible",
+      "Git",
+      "Jest",
+      "Cypress",
+      "Claude Code",
+      "Local LLMs",
+      "AI-Assisted Dev",
+    ],
+  },
 ];
 
 const softSkills = [
-  "Active Learning", "Independence", "Communication", "Public speaking", "Teamwork",
-  "Problem-solving", "Critical thinking", "Adaptability", "Time management",
-  "Leadership", "Empathy", "Creativity",
+  "Technical Leadership",
+  "Mentorship & Teaching",
+  "Clear Technical Communication",
+  "Cross-Functional Collaboration",
+  "First-Principles Problem Solving",
+  "Product Ownership",
+  "Adaptability & Autonomy",
 ];
 
 const experience = [
   {
     title: "Lead Software Engineer",
     company: "Soil Scout",
-    period: "2024 - Present",
-    desc: "Leading end-to-end delivery on our IoT telemetry platform. Built and scaled Django/React systems handling 6.5M+ records hourly on PostgreSQL/TimescaleDB and GCP. Owning CI/CD with GitHub Actions and Ansible.",
+    period: "2024 - 2026",
+    desc: "Led end-to-end full-stack architecture for a global IoT telemetry platform. Scaled Django and React systems to ingest and index 6.5M+ hourly records in PostgreSQL/TimescaleDB on GCP. Automated multi-environment CI/CD deployment pipelines using GitHub Actions and Ansible.",
   },
   {
-    title: "Software Engineering",
+    title: "Software Engineering Student & Peer Mentor",
     company: "Hive Helsinki",
     period: "2022 - 2024",
-    desc: "Project-based curriculum in C/C++ and low-level systems. Peer-reviewed 200+ submissions. Capstone: a real-time 3D multiplayer Pong (Three.js + Django microservices).",
+    desc: "Rigorous, peer-to-peer curriculum focused on C/C++, Unix internals, algorithms, and memory management. Evaluated 200+ peer code submissions. Built a real-time multiplayer 3D Pong system using Three.js and Django microservices as a capstone.",
   },
   {
     title: "Full Stack Open",
     company: "University of Helsinki",
     period: "2023 - 2024",
-    desc: "MERN-stack curriculum: React, Node, MongoDB, TypeScript, Jest, Cypress, and CI/CD pipelines.",
+    desc: "Advanced deep-dive into modern web development: React, Node.js, Express, TypeScript, automated testing (Jest, Cypress), and containerized CI/CD workflows.",
   },
   {
     title: "Bachelor of Sport Science",
     company: "HAN University",
     period: "2012 - 2016",
-    desc: "Sport Leisure Management — team dynamics, project coordination, and people leadership.",
+    desc: "Specialization in Sports Management: focused on team dynamics, pedagogy, large-group coaching, and cross-functional project execution.",
   },
 ];
 
@@ -122,16 +173,20 @@ const AboutPage = () => {
           <div className="flex flex-col gap-12 justify-center">
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             <p className="text-lg">
-              Hey there! 👋 I&apos;m a Full-Stack Software Engineer based in Helsinki, currently leading engineering at Soil Scout where we ingest 6.5M+ telemetry records every hour.<br /><br />
-              My day-to-day mixes Python (Django), React, PostgreSQL/TimescaleDB, GCP, GitHub Actions, and Ansible, building the systems and pipelines that turn raw IoT data into something useful. I love the full-stack span: shaping a product idea on a whiteboard, building it end-to-end, and shipping it through CI/CD.<br /><br />
-              Outside of work I run community events, teach programming to kids and entrepreneurs, and dig into whatever new tech catches my attention. Sharing knowledge is half the fun.<br /><br />
-              My bigger dream is to point my tech skills at problems that matter, environmental and health tech especially. I genuinely believe software can make the world a better place, and I want to be part of that.<br /><br />
-              At the end of the day my approach to coding is pretty simple: start from first principles, team up with great people, and never stop learning. Let&apos;s build something. ✨
+              Hey there! 👋 I'm a Full-Stack Software Engineer based in Helsinki with a background in high-scale data systems, modern web apps, and low-level developer education.<br /><br />
+
+              A quick snapshot of what I bring to the table:<br />
+              • <strong>Proven Scale:</strong> Former Lead Software Engineer at Soil Scout, re-architecting data pipelines to process 6.5M+ telemetry records/hour with sub-second query performance.<br />
+              • <strong>Full-Stack Breadth:</strong> Deep production experience across TypeScript, React, Python (FastAPI/Django), PostgreSQL, Docker, and cloud deployments.<br />
+              • <strong>Continuous Builder:</strong> Active with modern AI tooling (Antigravity, Claude Code, local LLMs) and currently shipping an independent offline-first mobile companion app.<br />
+              • <strong>Educator's Mindset:</strong> Hive Helsinki alumnus with a degree in Sport Science and teaching background. Bringing empathy, clear technical communication, and mentorship to every team.<br /><br />
+
+              Whether optimizing real-time data pipelines, polishing a mobile interaction, or mentoring teammates, I focus on first principles and clear communication. If you're building something ambitious with great people, let's talk. ✨
             </p>
             <ScrollArrow />
           </div>
           {/* SKILLS */}
-          <div className="flex flex-col gap-12 justify-center" ref={skillRef}>
+          <div className="flex flex-col gap-10 justify-center" ref={skillRef}>
             <motion.h1
               initial={{ x: "-300px" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
@@ -140,34 +195,55 @@ const AboutPage = () => {
             >
               SKILLS
             </motion.h1>
+
+            {/* TECHNICAL SKILLS BY CATEGORY */}
             <motion.div
               initial={{ x: "-300px" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
-              className="flex gap-4 flex-wrap"
+              transition={{ delay: 0.25 }}
+              className="flex flex-col gap-6"
             >
-              {skills.map((skill) => (
-                <div
-                  key={skill}
-                  className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black"
-                >
-                  {skill}
+              {skillCategories.map((group) => (
+                <div key={group.category} className="flex flex-col gap-2">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                    {group.category}
+                  </span>
+                  <div className="flex gap-3 flex-wrap">
+                    {group.items.map((skill) => (
+                      <div
+                        key={skill}
+                        className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black border border-black transition-colors"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </motion.div>
+
+            {/* LEADERSHIP & APPROACH (SOFT SKILLS) */}
             <motion.div
               initial={{ x: "-300px" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
-              className="flex gap-4 flex-wrap"
+              transition={{ delay: 0.3 }}
+              className="flex flex-col gap-2"
             >
-              {softSkills.map((skill) => (
-                <div
-                  key={skill}
-                  className="rounded p-2 text-sm cursor-pointer bg-white text-black hover:bg-black hover:text-white"
-                >
-                  {skill}
-                </div>
-              ))}
+              <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Approach & Leadership
+              </span>
+              <div className="flex gap-3 flex-wrap">
+                {softSkills.map((skill) => (
+                  <div
+                    key={skill}
+                    className="rounded p-2 text-sm cursor-pointer bg-white text-black hover:bg-black hover:text-white border border-black transition-colors"
+                  >
+                    {skill}
+                  </div>
+                ))}
+              </div>
             </motion.div>
+
             <ScrollArrow />
           </div>
           {/* EXPERIENCE */}

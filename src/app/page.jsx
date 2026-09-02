@@ -27,8 +27,8 @@ const Homepage = () => {
           </h1>
           {/* DESCRIPTION*/}
           <p className="md:text-xl">
-            Helsinki-based engineer leading software at Soil Scout, where we ingest 6.5M+ telemetry records per hour.
-            I love connecting product ideas to working software, from React frontends to Python/Django backends and the CI/CD that ships them.
+            Passionate full-stack engineer with a background in high-scale telemetry and a drive for shipping clean, intuitive products.
+            Former Lead Engineer at Soil Scout. While experienced across TypeScript, React, and Python, I'm fundamentally language-agnostic. Leveraging deep fundamentals and modern AI workflows to solve hard problems and build software end to end.
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4">
