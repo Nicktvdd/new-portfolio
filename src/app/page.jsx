@@ -28,7 +28,7 @@ const Homepage = () => {
           {/* DESCRIPTION*/}
           <p className="md:text-xl">
             Passionate full-stack engineer with a background in high-scale telemetry and a drive for shipping clean, intuitive products.
-            Former Lead Engineer at Soil Scout. While experienced across TypeScript, React, and Python, I'm fundamentally language-agnostic. Leveraging deep fundamentals and modern AI workflows to solve hard problems and build software end to end.
+            Former Lead Engineer at Soil Scout. While experienced across TypeScript, React, and Python, I&apos;m fundamentally language-agnostic. Leveraging deep fundamentals and modern AI workflows to solve hard problems and build software end to end.
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4">

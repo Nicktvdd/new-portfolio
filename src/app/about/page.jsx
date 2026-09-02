@@ -173,15 +173,15 @@ const AboutPage = () => {
           <div className="flex flex-col gap-12 justify-center">
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             <p className="text-lg">
-              Hey there! 👋 I'm a Full-Stack Software Engineer based in Helsinki with a background in high-scale data systems, modern web apps, and low-level developer education.<br /><br />
+              Hey there! 👋 I&apos;m a Full-Stack Software Engineer based in Helsinki with a background in high-scale data systems, modern web apps, and low-level developer education.<br /><br />
 
               A quick snapshot of what I bring to the table:<br />
               • <strong>Proven Scale:</strong> Former Lead Software Engineer at Soil Scout, re-architecting data pipelines to process 6.5M+ telemetry records/hour with sub-second query performance.<br />
               • <strong>Full-Stack Breadth:</strong> Deep production experience across TypeScript, React, Python (FastAPI/Django), PostgreSQL, Docker, and cloud deployments.<br />
               • <strong>Continuous Builder:</strong> Active with modern AI tooling (Antigravity, Claude Code, local LLMs) and currently shipping an independent offline-first mobile companion app.<br />
-              • <strong>Educator's Mindset:</strong> Hive Helsinki alumnus with a degree in Sport Science and teaching background. Bringing empathy, clear technical communication, and mentorship to every team.<br /><br />
+              • <strong>Educator&apos;s Mindset:</strong> Hive Helsinki alumnus with a degree in Sport Science and teaching background. Bringing empathy, clear technical communication, and mentorship to every team.<br /><br />
 
-              Whether optimizing real-time data pipelines, polishing a mobile interaction, or mentoring teammates, I focus on first principles and clear communication. If you're building something ambitious with great people, let's talk. ✨
+              Whether optimizing real-time data pipelines, polishing a mobile interaction, or mentoring teammates, I focus on first principles and clear communication. If you&apos;re building something ambitious with great people, let&apos;s talk. ✨
             </p>
             <ScrollArrow />
           </div>
