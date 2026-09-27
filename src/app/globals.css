@@ -1,3 +1,97 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+  --paper: #faf7f2;
+  --card: #ffffff;
+  --ink: #17150f;
+  --muted: #6a655b;
+  --line: #e6dfd3;
+  --accent: #d9542f;
+  --accent-soft: #fbe3d9;
+  --accent-ink: #b8431f;
+  --slab: #17150f;
+  --on-slab: #faf7f2;
+  --wash-a: rgba(125, 211, 252, 0.18);
+  --wash-b: rgba(253, 186, 116, 0.22);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12110f;
+    --card: #1b1916;
+    --ink: #f2eee6;
+    --muted: #a39d91;
+    --line: #2d2a25;
+    --accent: #f07a55;
+    --accent-soft: #3a2219;
+    --accent-ink: #f07a55;
+    --slab: #221f1b;
+    --on-slab: #f2eee6;
+    --wash-a: rgba(56, 189, 248, 0.07);
+    --wash-b: rgba(251, 146, 60, 0.08);
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-slab: var(--slab);
+  --color-on-slab: var(--on-slab);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: light dark;
+}
+
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(60rem 40rem at 0% 0%, var(--wash-a), transparent 70%),
+    radial-gradient(50rem 40rem at 100% 10%, var(--wash-b), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* One motion language for the whole site: fade in + rise 8px, 300ms, same easing. Reveal.tsx mirrors these values. */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.page-enter {
+  animation: enter 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-enter {
+    animation: none;
+  }
+}
