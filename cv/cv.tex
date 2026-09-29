@@ -1,0 +1,161 @@
+% Nick van den Dungen: CV. Build from this folder: tectonic -X compile cv.tex (see CLAUDE.md, "CV").
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+\geometry{left=1.8cm,right=1.8cm,top=1.3cm,bottom=1.3cm}
+
+% --- Fonts: the same pair as nickvandendungen.com ---
+\setsansfont{Geist}[
+  Path=fonts/, Extension=.ttf,
+  UprightFont=*-Regular, BoldFont=*-SemiBold,
+  ItalicFont=*-Regular, ItalicFeatures={FakeSlant=0.15},
+  BoldItalicFont=*-SemiBold, BoldItalicFeatures={FakeSlant=0.15}]
+\setmainfont{InstrumentSerif}[
+  Path=fonts/, Extension=.ttf,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-Regular, BoldItalicFont=*-Italic]
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\baselinestretch}{1.12}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+% --- Colours: the portfolio's ink, muted text, lines and coral accent (print-safe shade) ---
+\definecolor{Ink}{HTML}{17150F}
+\definecolor{Body}{HTML}{3D3930}
+\definecolor{Muted}{HTML}{6A655B}
+\definecolor{Line}{HTML}{E6DFD3}
+\definecolor{Accent}{HTML}{B8431F}
+
+\colorlet{name}{Ink}
+\colorlet{tagline}{Accent}
+\colorlet{heading}{Ink}
+\colorlet{headingrule}{Line}
+\colorlet{subheading}{Accent}
+\colorlet{accent}{Accent}
+\colorlet{emphasis}{Ink}
+\colorlet{body}{Body}
+
+\renewcommand{\namefont}{\fontsize{26}{30}\selectfont\sffamily\bfseries}
+\renewcommand{\taglinefont}{\Large\rmfamily\itshape}
+\renewcommand{\personalinfofont}{\small}
+\renewcommand{\cvsectionfont}{\large\sffamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\normalsize\bfseries}
+\renewcommand{\itemmarker}{{\small\color{Accent}\textbullet}}
+
+\newcommand{\cvlink}[2]{\href{#1}{\color{Accent}#2~\raisebox{0.1ex}{\scriptsize$\nearrow$}}}
+
+\begin{document}
+\name{Nick van den Dungen}
+\tagline{Full-stack engineer \,·\, open to CTO, founding-engineer \& full-stack roles}
+
+\personalinfo{
+  \email{nicktvdd@gmail.com}\smallskip
+  \location{Helsinki, Finland}\smallskip
+  \homepage{nickvandendungen.com}\\
+  \linkedin{nick-van-den-dungen}\smallskip
+  \github{Nicktvdd}
+}
+
+\makecvheader
+
+\cvsection{Summary}
+I build products end to end, from the first idea to the people using them. At Soil Scout I grew from Full Stack
+Engineer into \textbf{Lead Full Stack Engineer}, leading development of The Hub and the infrastructure behind
+\textbf{6.5M+ sensor uploads an hour}. Since June 2026 I have been founding \textbf{Tiny Tarrasque}, an offline-first
+tabletop RPG app that I build solo with AI agents. I learned to code through C and C++ at Hive Helsinki, and years
+of teaching and coaching taught me to explain things clearly.
+
+\cvsection{Experience}
+
+\cvevent{Founder \& Engineer}{Tiny Tarrasque}{Jun 2026 -- now}{Helsinki, Finland}
+\begin{itemize}
+  \item Building an offline-first character sheet app for in-person tabletop RPG groups with \textbf{React Native},
+        \textbf{Expo}, \textbf{TypeScript} and \textbf{Zustand}. Friends alpha October 2026, public beta planned for December 2026.
+        \cvlink{https://www.nickvandendungen.com/projects/tiny-tarrasque}{Case study}
+  \item Designed a rules engine that knows no game: it evaluates a character as a dependency graph, and the game
+        rules ship as validated JSON data packs. Old saves always load through versioned migrations.
+  \item Ship solo with an AI-agent workflow (\textbf{Claude Code}, \textbf{Codex}): written guardrails for the agents,
+        one pull request per task, CI on every PR, and a typecheck and test gate (85 test files) before anything is done.
+  \item Run it as a product: every milestone ends with a usability test with a real player, and scope is cut
+        rather than letting dates slip.
+\end{itemize}
+
+\divider
+
+\cvevent{Full Stack Engineer $\rightarrow$ Lead Full Stack Engineer}{Soil Scout}{Oct 2024 -- Jun 2026}{Helsinki, Finland}
+\begin{itemize}
+  \item Full Stack Engineer from October 2024; promoted to \textbf{Lead Full Stack Engineer} in October 2025.
+  \item \textbf{Technical ownership:} led development of The Hub, the web dashboard for Soil Scout's buried soil
+        sensors. Owned delivery and technical choices, bridging in-house developers and external consultants.
+  \item \textbf{Full-stack development:} designed, built and deployed features in \textbf{Python (Django)},
+        \textbf{React} and \textbf{Tailwind CSS} to visualise real-time IoT telemetry.
+  \item \textbf{Data infrastructure:} optimised \textbf{PostgreSQL} and \textbf{TimescaleDB} pipelines on \textbf{GCP}
+        to reliably ingest \textbf{6.5M+ sensor uploads an hour}, and tracked down production bugs.
+  \item \textbf{DevOps:} automated CI/CD and infrastructure provisioning with \textbf{GitHub Actions} and \textbf{Ansible}.
+  \item \textbf{Hiring:} built the technical recruitment pipeline from scratch, with practical coding assignments
+        and interviews focused on how candidates think and collaborate.
+\end{itemize}
+
+\cvsection{Other projects}
+\begin{itemize}
+  \item \textbf{This portfolio:} static-exported site in \textbf{Next.js}, \textbf{TypeScript} and \textbf{Tailwind CSS},
+        built with an AI-agent review loop. \cvlink{https://www.nickvandendungen.com}{nickvandendungen.com}
+  \item \textbf{Procedural character API:} a type-safe REST API in \textbf{Kotlin} that procedurally generates tabletop
+        RPG characters, with the data layer kept separate from the business logic.
+        \cvlink{https://github.com/Nicktvdd/DnD-Api}{GitHub}
+\end{itemize}
+
+
+\clearpage
+\cvsection{Skills}
+\begin{tabular}{@{}p{3.6cm}p{12.4cm}@{}}
+  \textbf{Product} & TypeScript, React, React Native, Expo, Next.js, Svelte, Tailwind CSS, Zustand \\[0.4ex]
+  \textbf{Backend \& data} & Python, Django, Django REST, Node.js, REST API design, WebSockets / socket.io,
+                              PostgreSQL, TimescaleDB, Supabase, Kotlin \\[0.4ex]
+  \textbf{Infra \& quality} & GCP, Docker, Terraform, Linux, GitHub Actions, Ansible, Jest, Cypress, Playwright \\[0.4ex]
+  \textbf{Working with AI} & Claude Code, Codex, Cursor, MCP servers, agentic workflows, LLM evals, local LLMs \\[0.4ex]
+  \textbf{Foundations} & C, C++, Unix / POSIX, memory management \\[0.4ex]
+  \textbf{Languages} & Dutch (native), English (fluent), Finnish (A2) \\
+\end{tabular}
+
+\cvsection{Education}
+
+\cvevent{Software Engineering (student \& peer mentor)}{Hive Helsinki}{2022 -- 2024}{Helsinki, Finland}
+\begin{itemize}
+  \item Project-based, peer-to-peer curriculum in systems programming (\textbf{C}, \textbf{C++}): memory management,
+        Unix internals and debugging, built from the ground up. Peer-reviewed 200+ code submissions.
+  \item Board member and head of internal relations of the student association (Hexagon ry), 2023--2024:
+        organised community events for students. I still give the occasional workshop there.
+  \item \textbf{Transcendence (final project):} led the front end and helped across the rest of the stack of a team-built website for real-time 3D Pong (\textbf{Three.js}) with
+        accounts, match history and tournaments, on \textbf{Django REST} and \textbf{PostgreSQL} services, fully dockerised.
+        \cvlink{https://github.com/Nicktvdd/transcendence}{GitHub}
+  \item \textbf{MiniShell:} a Bash-like shell in C with processes, pipes, redirections and signal handling.
+        \cvlink{https://github.com/Nicktvdd/MiniShell}{GitHub}
+\end{itemize}
+
+\divider
+
+\cvevent{Full Stack Open}{University of Helsinki}{2023 -- 2024}{Helsinki, Finland}
+\begin{itemize}
+  \item Built and deployed full-stack JavaScript apps (MongoDB, Express, React, Node.js) with automated pipelines
+        and unit and end-to-end tests (\textbf{Jest}, \textbf{Cypress}). Wrote a medical front end, Patientor, in strict \textbf{TypeScript}.
+\end{itemize}
+
+\divider
+
+\cvevent{Bachelor of Sport Science}{HAN University of Applied Sciences}{2012 -- 2016}{Nijmegen, Netherlands}
+\begin{itemize}
+  \item Sport and leisure management: team dynamics, project coordination and leading groups.
+\end{itemize}
+
+\cvsection{Before software}
+\begin{itemize}
+  \item \textbf{Dutch language \& culture teacher} (part-time), NTC Finland, 2021--2024: taught young learners.
+  \item \textbf{After-school instructor} (part-time), Peuhis ry, 2020--2022.
+  \item \textbf{Wilderness guide \& snowmobile instructor}, Ruka Safaris, Finland, 2018--2019.
+  \item \textbf{Activity instructor}, Explore the North, Sweden, 2017--2018: snowmobile tours and northern-light expeditions.
+  \item \textbf{Snowboard instructor} (freelance), Rukakeskus / Pyhätunturi, Finland, 2016--2017.
+  \item \textbf{Bootcamp instructor}, City Bootcamp NL, 2013--2015 (during my degree): led group sessions and trained other instructors.
+\end{itemize}
+
+\end{document}

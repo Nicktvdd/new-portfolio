@@ -4,40 +4,40 @@ import { Container, SectionHeading, Serif } from "./ui";
 const principles = [
   {
     title: "Agents with guardrails",
-    body: "Every workspace carries its own CLAUDE.md and AGENTS.md with hard rules, specialised sub-agents own the rules engine and the mobile app, and a verify gate (typecheck plus the full test suite) has to pass before anything counts as done.",
+    body: "Written rules for every part of the codebase, and nothing is done until the types and tests pass.",
   },
   {
     title: "Small, reviewable steps",
-    body: "One branch and one PR per task, CI on every PR, decisions recorded as ADRs and a short hand-off note between sessions. AI writes a lot of the code; I own the architecture, the review and the merge.",
+    body: "One task, one pull request, CI on each. The agents write code; I own the design and the review.",
   },
   {
-    title: "A team's pace, solo",
-    body: "In six weeks: a game-agnostic rules engine, two rule systems shipped as data and a cross-platform app, in 110+ commits and 85 test files.",
+    title: "Six weeks, solo",
+    body: "From first commit to a playable app, with 85 test files along the way.",
   },
   {
-    title: "AI in the product, responsibly",
-    body: "The planned AI backstory feature runs through my own server so no API key ships in the app, sits behind a fair-use cap, and never replaces the offline generator that stays the default.",
+    title: "AI in the product, later",
+    body: "An optional AI backstory for the paid tier, running through my own server.",
   },
 ];
 
 export default function AiSection() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-16 md:py-20">
       <Container className="flex flex-col gap-12">
         <SectionHeading
-          eyebrow="How I build with AI"
+          eyebrow="Workflow"
           title={
             <>
-              AI multiplies output. <Serif>Judgment decides where it goes.</Serif>
+              How I build <Serif>with AI agents.</Serif>
             </>
           }
-          intro="I use AI agents every day, as leverage, not as autopilot. This is the workflow behind Tiny Tarrasque, and it's the one I'd bring to your team."
+          intro="The setup behind Tiny Tarrasque, and roughly what I'd bring to a team."
         />
         <div className="grid gap-4 sm:grid-cols-2">
           {principles.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.05}>
               <div className="flex h-full flex-col gap-3 rounded-2xl border border-line bg-card p-6 md:p-8">
-                <span className="font-display text-3xl italic text-accent-ink">0{i + 1}</span>
+                <span className="font-display text-2xl italic text-accent-ink">0{i + 1}</span>
                 <h3 className="text-lg font-semibold">{p.title}</h3>
                 <p className="text-muted text-pretty">{p.body}</p>
               </div>

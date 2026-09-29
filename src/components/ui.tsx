@@ -33,6 +33,7 @@ const variants = {
   primary: "bg-ink text-paper hover:bg-accent",
   secondary: "border border-ink/80 text-ink hover:bg-ink hover:text-paper",
   inverse: "bg-on-slab text-slab hover:bg-accent hover:text-on-slab",
+  plain: "",
   ghost:"text-ink underline decoration-accent decoration-2 underline-offset-4 hover:text-accent",
 } as const;
 
@@ -65,7 +66,28 @@ export function StatusPill({ children }: { children: ReactNode }) {
         <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:hidden" />
         <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
       </span>
-      {children}
+      <span>{children}</span>
     </span>
+  );
+}
+
+export function FactList({ facts }: { facts: { label: string; value: string }[] }) {
+  return (
+    <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
+      {facts.map((f) => (
+        <div key={f.label} className="flex flex-col gap-1 bg-card p-5">
+          <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">{f.label}</dt>
+          <dd className="font-medium">{f.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export function BackLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link href={href} className="w-fit text-sm font-medium text-muted hover:text-ink">
+      <span aria-hidden="true">←</span> {children}
+    </Link>
   );
 }

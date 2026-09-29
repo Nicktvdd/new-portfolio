@@ -24,11 +24,11 @@ export const featured: FeaturedProject[] = [
   {
     slug: "tiny-tarrasque",
     title: "Tiny Tarrasque",
-    label: "Founder · 2026 – now",
+    label: "Founder · Jun 2026 – now",
     summary:
-      "An offline-first character sheet app for in-person tabletop RPG groups. A game-agnostic rules engine, rule systems shipped as data, and a UI built for a phone lying on the table.",
-    outcome: "Friends alpha Oct 2026 · Public beta Dec 2026",
-    tags: ["TypeScript", "React Native", "Expo", "Zustand", "Jest", "AI-native workflow"],
+      "An offline-first character sheet for tabletop RPG groups who play around a real table. I'm building it on my own, with AI agents.",
+    outcome: "Friends alpha Oct 2026 · beta Dec 2026",
+    tags: ["TypeScript", "React Native", "Expo", "AI agents"],
     href: "/projects/tiny-tarrasque",
     cta: "Read the case study",
     image: { src: "/projects/tiny-tarrasque/sheet.webp", alt: "Tiny Tarrasque character sheet on a phone", phone: true },
@@ -36,25 +36,27 @@ export const featured: FeaturedProject[] = [
   {
     slug: "soil-scout",
     title: "Soil Scout",
-    label: "Lead Software Engineer · 2024 – 2026",
+    label: "Work · 2024–2026",
     summary:
-      "Led engineering for a global soil-sensing IoT platform. Scaled the Django + React stack to ingest and index telemetry on PostgreSQL/TimescaleDB and GCP, automated multi-environment CI/CD, and ran engineering hiring.",
-    outcome: "Sub-second queries over high-volume time-series data",
-    tags: ["Python", "Django", "React", "TimescaleDB", "GCP", "GitHub Actions", "Ansible"],
-    stat: { value: "6.5M+", caption: "telemetry records ingested per hour" },
+      "I led development of The Hub, the dashboard for Soil Scout's buried soil sensors, and built our hiring pipeline from scratch.",
+    outcome: "Full Stack Engineer, promoted to Lead Full Stack Engineer in 2025",
+    tags: ["Django", "React", "TimescaleDB", "GCP"],
+    href: "/projects/soil-scout",
+    cta: "Read the story",
+    stat: { value: "6.5M+", caption: "sensor uploads an hour" },
   },
   {
     slug: "transcendence",
     title: "Transcendence",
-    label: "Hive Helsinki capstone",
+    label: "Hive Helsinki · team project",
     summary:
-      "Real-time multiplayer 3D Pong in Three.js, with user authentication and Django + PostgreSQL microservices behind it.",
-    outcome: "Real-time 3D multiplayer in the browser",
-    tags: ["Three.js", "JavaScript", "Django", "PostgreSQL"],
+      "Real-time 3D Pong in the browser, with accounts and tournaments. I led the front end and helped across the rest of the stack.",
+    outcome: "Django REST, a socket.io game server, fully dockerised",
+    tags: ["Three.js", "Django REST", "socket.io", "Docker"],
     href: "https://github.com/Nicktvdd/transcendence",
     external: true,
     cta: "View on GitHub",
-    image: { src: "/projects/pong.webp", alt: "Transcendence 3D Pong game screen" },
+    image: { src: "/projects/pong.webp", alt: "Transcendence: a 3D Pong table seen from above, two paddles and a ball" },
   },
 ];
 
@@ -84,7 +86,7 @@ export const archive: ArchiveProject[] = [
     title: "This portfolio",
     context: "Open source",
     summary: "Static-exported site with page transitions, dark mode and build-time OG images.",
-    stack: "Next.js 16 · TypeScript · Tailwind 4 · Motion",
+    stack: "Next.js · TypeScript · Tailwind",
     href: "https://github.com/Nicktvdd/new-portfolio",
   },
 ];

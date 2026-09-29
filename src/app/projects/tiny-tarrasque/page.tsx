@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import ClosingCta from "@/components/ClosingCta";
 import PhoneFrame from "@/components/PhoneFrame";
 import Reveal from "@/components/Reveal";
-import { ButtonLink, Container, Eyebrow, SectionHeading, Serif, StatusPill, Tag } from "@/components/ui";
+import { BackLink, Container, Eyebrow, FactList, SectionHeading, Serif, StatusPill } from "@/components/ui";
 import { alphaMailto } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Tiny Tarrasque — case study",
   description:
-    "How Nick van den Dungen is founding Tiny Tarrasque: an offline-first tabletop RPG character sheet app with a game-agnostic rules engine, rule systems as data, and an AI-native development workflow.",
+    "How Nick van den Dungen is founding Tiny Tarrasque: an offline-first tabletop RPG character sheet app with a game-agnostic rules engine, rules stored as data, and an AI-native development workflow.",
   alternates: { canonical: "/projects/tiny-tarrasque" },
 };
 
@@ -34,7 +34,7 @@ const features = [
 ];
 
 const pipeline = [
-  { name: "Rule packs", note: "SRD 5.2.1 & PF2e as validated JSON" },
+  { name: "Rule packs", note: "fifth-edition SRD 5.2.1 as validated JSON" },
   { name: "Rules engine", note: "character as a dependency graph" },
   { name: "Character store", note: "versioned format + migrations" },
   { name: "App UI", note: "React Native, offline-first" },
@@ -43,11 +43,11 @@ const pipeline = [
 const decisions = [
   {
     title: "A rules engine that knows no game",
-    body: "The engine evaluates a character as a directed acyclic graph of typed value expressions (constants, references, per-level tables, dice, sums and min/max). Game terms are banned from the engine package, with a grep check to catch any that slip in. That's what lets one engine run two different game systems.",
+    body: "The engine evaluates a character as a directed acyclic graph of typed value expressions (constants, references, per-level tables, dice, sums and min/max). Game terms are banned from the engine package, with a grep check to catch any that slip in. That keeps the engine small and lets new rules arrive as data instead of code changes.",
   },
   {
-    title: "Rules are data, not code",
-    body: "The fifth-edition SRD 5.2.1 and Pathfinder 2e live in validated JSON rule packs. Adding a class is data work, not engine work, and homebrew will drop in later as just another pack that can be switched off.",
+    title: "Rules live in data files",
+    body: "The fifth-edition SRD 5.2.1 lives in validated JSON rule packs. Adding a class means adding data, and homebrew will later drop in as one more pack you can switch off.",
   },
   {
     title: "Never lose a character",
@@ -69,16 +69,12 @@ const aiPractices = [
     body: "A rules-engine developer and a mobile developer agent, each scoped to its own package and conventions.",
   },
   {
-    title: "Gates, not vibes",
+    title: "Checks before anything ships",
     body: "A verify step (a TypeScript build plus 85 test files) must pass, CI runs on every PR, and a ship-check runs before any PR opens. One branch, one PR per task.",
   },
   {
-    title: "Memory between sessions",
-    body: "Architecture decision records and a STATUS hand-off capped at 15 lines, so every session, human or agent, starts with the right context.",
-  },
-  {
-    title: "Planning with AI, deciding myself",
-    body: "Roadmaps, usability gates and trade-offs get worked through with Claude in shared docs. The decisions, and the cut list, stay mine.",
+    title: "Memory and planning",
+    body: "Architecture decision records and a STATUS hand-off capped at 15 lines, so every session starts with the right context. Roadmaps and trade-offs get worked through with Claude in shared docs; the decisions, and the cut list, stay mine.",
   },
 ];
 
@@ -86,7 +82,7 @@ const stats = [
   { value: "6 weeks", label: "from first commit to a playable app" },
   { value: "110+", label: "commits" },
   { value: "85", label: "test files" },
-  { value: "2", label: "game systems on one engine" },
+  { value: "15 Dec", label: "public beta target" },
 ];
 
 const roadmap = [
@@ -100,26 +96,17 @@ export default function TinyTarrasquePage() {
   return (
     <>
       <Container className="flex flex-col gap-10 pb-16 pt-10 md:pt-14">
-        <Link href="/projects" className="w-fit text-sm font-medium text-muted hover:text-ink">
-          <span aria-hidden="true">←</span> All projects
-        </Link>
+        <BackLink href="/projects">All projects</BackLink>
         <div className="flex max-w-3xl flex-col gap-5">
           <Eyebrow>Case study · Founder</Eyebrow>
           <h1 className="text-5xl font-semibold tracking-tight text-balance md:text-7xl">
-            Tiny Tarrasque. <Serif>A character sheet that keeps up with the table.</Serif>
+            Tiny Tarrasque.
+            <br />
+            <Serif>A character sheet that keeps up with the table.</Serif>
           </h1>
-          <StatusPill>Friends alpha starts October 2026</StatusPill>
+          <StatusPill>Friends alpha: October 2026</StatusPill>
         </div>
-        <div>
-          <dl className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {facts.map((f) => (
-              <div key={f.label} className="flex flex-col gap-1 bg-card p-5">
-                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">{f.label}</dt>
-                <dd className="font-medium">{f.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        <FactList facts={facts} />
       </Container>
 
       <section className="overflow-hidden bg-gradient-to-b from-accent-soft/70 to-transparent py-14">
@@ -160,7 +147,7 @@ export default function TinyTarrasquePage() {
         </section>
 
         <section className="flex flex-col gap-10">
-          <SectionHeading eyebrow="What it does" title="Everything you need mid-session, nothing you don't." />
+          <SectionHeading eyebrow="What it does" title={<>What it does <Serif>at the table.</Serif></>} />
           <div className="grid gap-4 sm:grid-cols-2">
             {features.map((f) => (
               <Reveal key={f.title}>
@@ -183,7 +170,7 @@ export default function TinyTarrasquePage() {
             <ol className="grid items-stretch gap-3 md:grid-cols-4" aria-label="Data flow">
               {pipeline.map((step, i) => (
                 <li key={step.name} className="relative flex flex-col gap-1 rounded-2xl border border-line bg-card p-5">
-                  <span className="text-xs font-semibold text-accent-ink">0{i + 1}</span>
+                  <span className="font-display text-xl italic text-accent-ink">0{i + 1}</span>
                   <span className="font-semibold">{step.name}</span>
                   <span className="text-sm text-muted">{step.note}</span>
                   {i < pipeline.length - 1 && (
@@ -211,9 +198,9 @@ export default function TinyTarrasquePage() {
           </div>
         </section>
 
-        <section className="-mx-5 flex flex-col gap-10 bg-slab px-5 py-16 text-on-slab sm:mx-0 sm:rounded-3xl sm:px-10 md:px-14">
+        <section className="-mx-5 flex flex-col gap-10 bg-slab px-5 py-16 text-on-slab sm:mx-0 sm:rounded-3xl sm:ring-1 sm:ring-line sm:px-10 md:px-14">
           <div className="flex max-w-2xl flex-col gap-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">How it&apos;s built with AI</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">How it&apos;s built</p>
             <h2 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">
               One person, <Serif>a team of agents,</Serif> and the process that keeps them honest.
             </h2>
@@ -239,12 +226,12 @@ export default function TinyTarrasquePage() {
         <section className="flex flex-col gap-10">
           <SectionHeading
             eyebrow="Roadmap & business"
-            title={<>Every phase ends with a person, <Serif>not a feature list.</Serif></>}
+            title={<>Each phase ends with <Serif>a real player test.</Serif></>}
             intro="Each milestone has a usability gate tested with a real player. For the beta, a stranger installs the app from the store listing, builds a character and plays levels 1–5 without help. If a gate fails, the next phase starts by fixing it, and dates only move by cutting scope."
           />
           <ol className="grid gap-4 md:grid-cols-4">
             {roadmap.map((r, i) => (
-              <li key={r.when} className="border-t-2 border-ink pt-4">
+              <li key={r.when} className="border-t-2 border-accent pt-4">
                 <Reveal delay={i * 0.05} className="flex flex-col gap-2">
                   <span className="font-display text-2xl italic text-accent-ink">{r.when}</span>
                   <h3 className="font-semibold">{r.title}</h3>
@@ -255,39 +242,28 @@ export default function TinyTarrasquePage() {
           </ol>
         </section>
 
-        <section className="flex flex-col gap-6">
-          <SectionHeading eyebrow="What this shows" title="If you're hiring a CTO or founding engineer" />
-          <div className="flex flex-wrap gap-2">
-            {["Product discovery", "Architecture for change", "Shipping discipline", "Testing with real users", "AI leverage with judgment", "Scope control"].map(
-              (t) => (
-                <Tag key={t}>{t}</Tag>
-              ),
-            )}
-          </div>
-          <p className="max-w-2xl text-lg text-muted text-pretty">
-            Tiny Tarrasque is a small product with serious foundations. It&apos;s the same way I&apos;d approach a
-            startup&apos;s first product: find the real problem, make the few decisions that keep everything else
-            cheap, and ship in small steps that real people test.
-          </p>
-        </section>
-
-        <section className="flex flex-col items-start gap-6 rounded-3xl border border-line bg-card p-8 md:flex-row md:items-center md:justify-between md:p-12">
-          <div className="flex max-w-xl flex-col gap-2">
-            <h2 className="text-3xl font-semibold tracking-tight">
-              Want to test it <Serif>at your table?</Serif>
-            </h2>
-            <p className="text-muted">
-              The friends alpha starts in October, Android first. Drop me a line and I&apos;ll send you a build.
+        <section className="grid gap-10 md:grid-cols-[1fr_1.3fr]">
+          <SectionHeading eyebrow="What this shows" title={<>If you&apos;re hiring <Serif>a CTO or founding engineer.</Serif></>} />
+          <div className="flex flex-col gap-5">
+            <p className="text-lg text-muted text-pretty">
+              Tiny Tarrasque is a small product with serious foundations. It&apos;s how I&apos;d approach a
+              startup&apos;s first product: find the real problem, make the few decisions that keep everything else
+              cheap, and ship in small steps that real people test.
             </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <ButtonLink href={alphaMailto}>Join the alpha</ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">
-              Other questions
-            </ButtonLink>
           </div>
         </section>
       </Container>
+
+      <ClosingCta
+        title={
+          <>
+            Want to test it <Serif>at your table?</Serif>
+          </>
+        }
+        body="The friends alpha starts in October, Android first. Drop me a line and I'll send you a build."
+        primary={{ href: alphaMailto, label: "Join the alpha" }}
+        secondary={{ href: "/contact", label: "Other questions" }}
+      />
     </>
   );
 }
