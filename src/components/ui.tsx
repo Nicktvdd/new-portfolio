@@ -21,7 +21,7 @@ export function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; tit
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-muted">{children}</span>
+    <span className="rounded-full bg-olive-soft px-3 py-1 text-xs font-medium text-olive-ink">{children}</span>
   );
 }
 
@@ -30,11 +30,11 @@ export function Serif({ children }: { children: ReactNode }) {
 }
 
 const variants = {
-  primary: "bg-ink text-paper hover:bg-accent",
+  primary: "bg-teal text-on-teal hover:bg-accent hover:text-on-accent",
   secondary: "border border-ink/80 text-ink hover:bg-ink hover:text-paper",
-  inverse: "bg-on-slab text-slab hover:bg-accent hover:text-on-slab",
+  inverse: "bg-accent-on-slab text-on-accent hover:bg-on-slab hover:text-slab",
   plain: "",
-  ghost:"text-ink underline decoration-accent decoration-2 underline-offset-4 hover:text-accent",
+  ghost:"text-ink underline decoration-accent decoration-2 underline-offset-4 hover:text-teal-ink",
 } as const;
 
 type ButtonLinkProps = { variant?: keyof typeof variants; href: string; children: ReactNode } & Omit<

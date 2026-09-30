@@ -8,7 +8,7 @@ import { ButtonLink, Container, SectionHeading, Serif, StatusPill } from "@/comp
 import { featured } from "@/content/projects";
 import { site } from "@/content/site";
 
-const inlineLink = "font-medium text-ink underline decoration-accent decoration-2 underline-offset-4 hover:text-accent";
+const inlineLink = "font-medium text-ink underline decoration-accent decoration-2 underline-offset-4 hover:text-teal-ink";
 
 export default function HomePage() {
   return (
@@ -21,7 +21,7 @@ export default function HomePage() {
               <span className="hidden sm:inline"> · {site.where}</span>
             </StatusPill>
             <h1 className="text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl md:text-7xl">
-              I build products <Serif><span className="text-accent">end to end.</span></Serif>
+              I build products <Serif><span className="text-accent-display">end to end.</span></Serif>
             </h1>
             <p className="max-w-xl text-lg text-muted text-pretty md:text-xl">
               I&apos;m Nick, a full-stack engineer in Helsinki. I&apos;m building{" "}
@@ -46,17 +46,19 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-[15rem] sm:max-w-sm lg:max-w-none">
-            <div className="absolute inset-x-6 bottom-0 top-12 -z-10 rounded-[3rem] bg-gradient-to-br from-accent-soft via-sky-100 to-orange-100 dark:via-sky-950/40 dark:to-orange-950/40" />
-            <Image
-              src="/hero.webp"
-              alt="Portrait of Nick van den Dungen"
-              width={1000}
-              height={1333}
-              priority
-              sizes="(min-width: 1024px) 420px, 80vw"
-              className="h-auto w-full"
-            />
+          <div className="mx-auto w-full max-w-[15rem] sm:max-w-xs lg:max-w-[26rem]">
+            {/* Arch and autumn gradient are CSS so they follow the theme; the portrait is a transparent cutout. */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-t-full bg-gradient-to-br from-hero-a to-hero-b">
+              <Image
+                src="/portrait.webp"
+                alt="Portrait of Nick van den Dungen"
+                width={900}
+                height={1252}
+                priority
+                sizes="(min-width: 1024px) 440px, (min-width: 640px) 336px, 252px"
+                className="absolute left-[-2.5%] top-[6%] h-auto w-[105%] max-w-none"
+              />
+            </div>
           </div>
         </Container>
       </section>

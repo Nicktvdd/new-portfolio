@@ -37,7 +37,7 @@ export default function AiSection() {
           {principles.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.05}>
               <div className="flex h-full flex-col gap-3 rounded-2xl border border-line bg-card p-6 md:p-8">
-                <span className="font-display text-2xl italic text-accent-ink">0{i + 1}</span>
+                <span className="font-display text-2xl italic text-teal-ink">0{i + 1}</span>
                 <h3 className="text-lg font-semibold">{p.title}</h3>
                 <p className="text-muted text-pretty">{p.body}</p>
               </div>

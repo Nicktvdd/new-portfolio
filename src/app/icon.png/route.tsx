@@ -12,13 +12,13 @@ export function GET() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#17150f",
+          background: "#2f6a63",
           borderRadius: 56,
         }}
       >
         <div style={{ display: "flex", alignItems: "flex-end" }}>
-          <span style={{ fontSize: 176, fontWeight: 700, color: "#faf7f2", lineHeight: 1, letterSpacing: -6 }}>N</span>
-          <div style={{ width: 34, height: 34, borderRadius: 999, background: "#f07a55", marginLeft: 6, marginBottom: 22 }} />
+          <span style={{ fontSize: 176, fontWeight: 700, color: "#f8f4ea", lineHeight: 1, letterSpacing: -6 }}>N</span>
+          <div style={{ width: 34, height: 34, borderRadius: 999, background: "#e0a640", marginLeft: 6, marginBottom: 22 }} />
         </div>
       </div>
     ),

@@ -48,7 +48,7 @@ export default function ProjectsPage() {
                   className="group grid gap-1 py-5 md:grid-cols-[14rem_1fr_16rem] md:items-baseline md:gap-8"
                 >
                   <span className="flex flex-col">
-                    <span className="text-lg font-semibold group-hover:text-accent">{item.title}</span>
+                    <span className="text-lg font-semibold group-hover:text-teal-ink">{item.title}</span>
                     <span className="text-sm text-muted">{item.context}</span>
                   </span>
                   <span className="text-muted text-pretty">{item.summary}</span>

@@ -19,19 +19,21 @@
 \hyphenpenalty=10000
 \exhyphenpenalty=10000
 
-% --- Colours: the portfolio's ink, muted text, lines and coral accent (print-safe shade) ---
-\definecolor{Ink}{HTML}{17150F}
-\definecolor{Body}{HTML}{3D3930}
-\definecolor{Muted}{HTML}{6A655B}
-\definecolor{Line}{HTML}{E6DFD3}
-\definecolor{Accent}{HTML}{B8431F}
+% --- Colours: the portfolio's autumn palette (ink, teal, olive rule, amber), print-safe shades ---
+\definecolor{Ink}{HTML}{1E2321}
+\definecolor{Body}{HTML}{3A403C}
+\definecolor{Muted}{HTML}{5F655B}
+\definecolor{Line}{HTML}{E6DDC9}
+\definecolor{Teal}{HTML}{2F6A63}
+\definecolor{Amber}{HTML}{C98A1E}
+\definecolor{AmberInk}{HTML}{8A5A0E}
 
 \colorlet{name}{Ink}
-\colorlet{tagline}{Accent}
+\colorlet{tagline}{Teal}
 \colorlet{heading}{Ink}
 \colorlet{headingrule}{Line}
-\colorlet{subheading}{Accent}
-\colorlet{accent}{Accent}
+\colorlet{subheading}{AmberInk}
+\colorlet{accent}{Teal}
 \colorlet{emphasis}{Ink}
 \colorlet{body}{Body}
 
@@ -40,9 +42,9 @@
 \renewcommand{\personalinfofont}{\small}
 \renewcommand{\cvsectionfont}{\large\sffamily\bfseries}
 \renewcommand{\cvsubsectionfont}{\normalsize\bfseries}
-\renewcommand{\itemmarker}{{\small\color{Accent}\textbullet}}
+\renewcommand{\itemmarker}{{\small\color{Amber}\textbullet}}
 
-\newcommand{\cvlink}[2]{\href{#1}{\color{Accent}#2~\raisebox{0.1ex}{\scriptsize$\nearrow$}}}
+\newcommand{\cvlink}[2]{\href{#1}{\color{Teal}#2~\raisebox{0.1ex}{\scriptsize$\nearrow$}}}
 
 \begin{document}
 \name{Nick van den Dungen}

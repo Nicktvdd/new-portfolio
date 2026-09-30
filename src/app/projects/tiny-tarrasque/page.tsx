@@ -170,13 +170,13 @@ export default function TinyTarrasquePage() {
             <ol className="grid items-stretch gap-3 md:grid-cols-4" aria-label="Data flow">
               {pipeline.map((step, i) => (
                 <li key={step.name} className="relative flex flex-col gap-1 rounded-2xl border border-line bg-card p-5">
-                  <span className="font-display text-xl italic text-accent-ink">0{i + 1}</span>
+                  <span className="font-display text-xl italic text-teal-ink">0{i + 1}</span>
                   <span className="font-semibold">{step.name}</span>
                   <span className="text-sm text-muted">{step.note}</span>
                   {i < pipeline.length - 1 && (
                     <span
                       aria-hidden="true"
-                      className="absolute -bottom-3 left-1/2 z-10 flex size-6 -translate-x-1/2 items-center justify-center rounded-full bg-ink text-xs text-paper md:-right-3 md:bottom-auto md:left-auto md:top-1/2 md:-translate-y-1/2 md:translate-x-0"
+                      className="absolute -bottom-3 left-1/2 z-10 flex size-6 -translate-x-1/2 items-center justify-center rounded-full bg-teal text-xs text-on-teal md:-right-3 md:bottom-auto md:left-auto md:top-1/2 md:-translate-y-1/2 md:translate-x-0"
                     >
                       <span className="md:hidden">↓</span>
                       <span className="hidden md:inline">→</span>
@@ -200,7 +200,7 @@ export default function TinyTarrasquePage() {
 
         <section className="-mx-5 flex flex-col gap-10 bg-slab px-5 py-16 text-on-slab sm:mx-0 sm:rounded-3xl sm:ring-1 sm:ring-line sm:px-10 md:px-14">
           <div className="flex max-w-2xl flex-col gap-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">How it&apos;s built</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-on-slab">How it&apos;s built</p>
             <h2 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">
               One person, <Serif>a team of agents,</Serif> and the process that keeps them honest.
             </h2>

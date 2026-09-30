@@ -76,7 +76,7 @@ export default function Navbar() {
                 href={link.href}
                 aria-current={isActive(pathname, link.href) ? "page" : undefined}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  isActive(pathname, link.href) ? "bg-ink text-paper" : "text-muted hover:text-ink"
+                  isActive(pathname, link.href) ? "bg-teal text-on-teal" : "text-muted hover:text-ink"
                 }`}
               >
                 {link.name}

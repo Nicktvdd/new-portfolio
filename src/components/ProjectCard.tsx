@@ -65,7 +65,7 @@ export default function ProjectCard({
         )}
       </div>
       <div
-        className={`flex min-h-56 min-w-0 items-center justify-center bg-gradient-to-br from-accent-soft to-paper p-6 sm:p-8 md:min-h-64 md:p-10 ${
+        className={`flex min-h-56 min-w-0 items-center justify-center bg-gradient-to-br from-olive-soft to-paper p-6 sm:p-8 md:min-h-64 md:p-10 ${
           flip ? "md:order-1" : ""
         }`}
       >

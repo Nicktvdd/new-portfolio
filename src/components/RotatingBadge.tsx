@@ -27,7 +27,7 @@ export default function RotatingBadge({ text, label, href }: { text: string; lab
       </motion.svg>
       <Link
         href={href}
-        className="absolute inset-0 m-auto flex size-20 items-center justify-center rounded-full bg-on-slab text-center text-sm font-semibold text-slab transition-colors hover:bg-accent md:size-24"
+        className="absolute inset-0 m-auto flex size-20 items-center justify-center rounded-full bg-on-slab text-center text-sm font-semibold text-slab transition-colors hover:bg-accent-on-slab hover:text-on-accent md:size-24"
       >
         {label}
       </Link>

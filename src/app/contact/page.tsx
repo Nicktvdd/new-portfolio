@@ -43,7 +43,7 @@ export default function ContactPage() {
                 className="group flex flex-1 items-center justify-between gap-4 py-4"
               >
                 <span className="text-sm text-muted">{c.label}</span>
-                <span className="font-medium group-hover:text-accent">
+                <span className="font-medium group-hover:text-teal-ink">
                   {c.value} <span aria-hidden="true">↗</span>
                 </span>
               </a>

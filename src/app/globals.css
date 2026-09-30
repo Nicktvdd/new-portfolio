@@ -1,34 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #faf7f2;
-  --card: #ffffff;
-  --ink: #17150f;
-  --muted: #6a655b;
-  --line: #e6dfd3;
-  --accent: #d9542f;
-  --accent-soft: #fbe3d9;
-  --accent-ink: #b8431f;
-  --slab: #17150f;
-  --on-slab: #faf7f2;
-  --wash-a: rgba(125, 211, 252, 0.18);
-  --wash-b: rgba(253, 186, 116, 0.22);
+  --paper: #f8f4ea;
+  --card: #fffdf7;
+  --ink: #1e2321;
+  --muted: #5f655b;
+  --line: #e6ddc9;
+  /* Amber gold: fills, dots, underlines. accent-display for large text, accent-ink for small text. */
+  --accent: #c98a1e;
+  --accent-display: #b07a12;
+  --accent-soft: #f5e6c4;
+  --accent-ink: #8a5a0e;
+  --on-accent: #1e2321;
+  --accent-on-slab: #e0a640;
+  /* Teal and olive come from the hero arch and carry buttons, chips and the closing band. */
+  --teal: #2f6a63;
+  --on-teal: #ffffff;
+  --teal-ink: #2f6a63;
+  --olive-soft: #ecead6;
+  --olive-ink: #56552c;
+  --slab: #1f3d39;
+  --on-slab: #f8f4ea;
+  --hero-a: #42706a;
+  --hero-b: #96925c;
+  --wash-a: rgba(66, 112, 106, 0.1);
+  --wash-b: rgba(201, 138, 30, 0.12);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #12110f;
-    --card: #1b1916;
-    --ink: #f2eee6;
-    --muted: #a39d91;
-    --line: #2d2a25;
-    --accent: #f07a55;
-    --accent-soft: #3a2219;
-    --accent-ink: #f07a55;
-    --slab: #2a2622;
-    --on-slab: #f2eee6;
-    --wash-a: rgba(56, 189, 248, 0.07);
-    --wash-b: rgba(251, 146, 60, 0.08);
+    --paper: #131817;
+    --card: #1b2120;
+    --ink: #efeadf;
+    --muted: #a6a69b;
+    --line: #2a302e;
+    --accent: #e0a640;
+    --accent-display: #e0a640;
+    --accent-soft: #3a301a;
+    --accent-ink: #e0a640;
+    --on-accent: #131817;
+    --accent-on-slab: #e0a640;
+    --teal: #79bdb1;
+    --on-teal: #131817;
+    --teal-ink: #79bdb1;
+    --olive-soft: #2b2d1f;
+    --olive-ink: #cfcb93;
+    --slab: #1c3431;
+    --on-slab: #efeadf;
+    --hero-a: #2f524d;
+    --hero-b: #6e6b44;
+    --wash-a: rgba(121, 189, 177, 0.06);
+    --wash-b: rgba(224, 166, 64, 0.06);
   }
 }
 
@@ -41,8 +63,18 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-accent-ink: var(--accent-ink);
+  --color-accent-display: var(--accent-display);
+  --color-on-accent: var(--on-accent);
+  --color-accent-on-slab: var(--accent-on-slab);
+  --color-teal: var(--teal);
+  --color-on-teal: var(--on-teal);
+  --color-teal-ink: var(--teal-ink);
+  --color-olive-soft: var(--olive-soft);
+  --color-olive-ink: var(--olive-ink);
   --color-slab: var(--slab);
   --color-on-slab: var(--on-slab);
+  --color-hero-a: var(--hero-a);
+  --color-hero-b: var(--hero-b);
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-instrument), ui-serif, Georgia, serif;
 }
@@ -64,12 +96,12 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--paper);
+  background: var(--teal);
+  color: var(--on-teal);
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--teal);
   outline-offset: 3px;
   border-radius: 4px;
 }

@@ -94,10 +94,10 @@ export default function AboutPage() {
             <div className="flex flex-col gap-1 p-5">
               <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Email & CV</dt>
               <dd className="flex flex-col gap-1">
-                <a className="w-fit font-medium underline decoration-accent decoration-2 underline-offset-4 hover:text-accent" href={`mailto:${site.email}`}>
+                <a className="w-fit font-medium underline decoration-accent decoration-2 underline-offset-4 hover:text-teal-ink" href={`mailto:${site.email}`}>
                   {site.email}
                 </a>
-                <a className="w-fit font-medium underline decoration-accent decoration-2 underline-offset-4 hover:text-accent" href={site.cv}>
+                <a className="w-fit font-medium underline decoration-accent decoration-2 underline-offset-4 hover:text-teal-ink" href={site.cv}>
                   Download CV (PDF)
                 </a>
               </dd>
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 <span
                   aria-hidden="true"
                   className={`absolute -left-[39px] top-1.5 size-3.5 rounded-full border-2 ${
-                    item.current ? "border-accent bg-accent" : "border-ink bg-paper"
+                    item.current ? "border-accent bg-accent" : "border-teal bg-paper"
                   }`}
                 />
                 <Reveal className="flex flex-col gap-2">
