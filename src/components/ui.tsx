@@ -6,14 +6,14 @@ export function Container({ className = "", children }: { className?: string; ch
 }
 
 export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink">{children}</p>;
+  return <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-accent-ink">{children}</p>;
 }
 
 export function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: ReactNode; intro?: ReactNode }) {
   return (
     <div className="flex max-w-2xl flex-col gap-3">
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">{title}</h2>
+      <h2 className="font-display text-4xl leading-[1.05] text-balance md:text-5xl">{title}</h2>
       {intro && <p className="text-lg text-muted text-pretty">{intro}</p>}
     </div>
   );
@@ -25,8 +25,23 @@ export function Tag({ children }: { children: ReactNode }) {
   );
 }
 
+// Headings are set in the serif display face as a whole; this keeps older two-part headings reading as one line.
 export function Serif({ children }: { children: ReactNode }) {
-  return <span className="font-display font-normal italic">{children}</span>;
+  return <>{children}</>;
+}
+
+// Handwritten margin note, the "field notes" voice of the site. Keep these short and rare.
+export function HandNote({
+  tone = "amber",
+  className = "",
+  children,
+}: {
+  tone?: "amber" | "teal";
+  className?: string;
+  children: ReactNode;
+}) {
+  const color = tone === "teal" ? "text-teal-ink" : "text-accent-ink";
+  return <p className={`font-hand leading-tight ${color} ${className}`}>{children}</p>;
 }
 
 const variants = {
@@ -43,7 +58,7 @@ type ButtonLinkProps = { variant?: keyof typeof variants; href: string; children
 >;
 
 export function ButtonLink({ variant = "primary", href, className = "", children, ...rest }: ButtonLinkProps) {
-  const cls = `inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors ${variants[variant]} ${className}`;
+  const cls = `inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors ${variants[variant]} ${className}`;
   if (href.startsWith("/")) {
     return (
       <Link href={href} className={cls} {...rest}>
@@ -61,11 +76,8 @@ export function ButtonLink({ variant = "primary", href, className = "", children
 
 export function StatusPill({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-line bg-card/80 px-3 py-1.5 text-xs font-medium text-muted">
-      <span className="relative flex size-2">
-        <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:hidden" />
-        <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-      </span>
+    <span className="inline-flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] text-teal-ink">
+      <span className="size-2 rounded-full bg-teal" aria-hidden="true" />
       <span>{children}</span>
     </span>
   );
@@ -73,10 +85,10 @@ export function StatusPill({ children }: { children: ReactNode }) {
 
 export function FactList({ facts }: { facts: { label: string; value: string }[] }) {
   return (
-    <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
+    <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line lg:grid-cols-4">
       {facts.map((f) => (
         <div key={f.label} className="flex flex-col gap-1 bg-card p-5">
-          <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">{f.label}</dt>
+          <dt className="font-mono text-xs uppercase tracking-[0.1em] text-muted">{f.label}</dt>
           <dd className="font-medium">{f.value}</dd>
         </div>
       ))}

@@ -45,7 +45,7 @@ export default function SoilScoutPage() {
         <BackLink href="/projects">All projects</BackLink>
         <div className="flex max-w-3xl flex-col gap-5">
           <Eyebrow>Work · Lead Full Stack Engineer</Eyebrow>
-          <h1 className="text-5xl font-semibold tracking-tight text-balance md:text-7xl">
+          <h1 className="font-display text-5xl leading-[1.02] text-balance md:text-7xl">
             Soil Scout.
             <br />
             <Serif>Leading The Hub.</Serif>
@@ -82,7 +82,7 @@ export default function SoilScoutPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             {work.map((w) => (
               <Reveal key={w.title}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-line bg-card p-6 md:p-8">
+                <div className="flex h-full flex-col gap-2 rounded-lg border border-line bg-card p-6 md:p-8">
                   <h3 className="text-lg font-semibold">{w.title}</h3>
                   <p className="text-muted text-pretty">{w.body}</p>
                 </div>

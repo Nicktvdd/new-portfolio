@@ -18,7 +18,7 @@ export default function ProjectsPage() {
       <Container className="flex flex-col gap-6 pb-12 pt-12 md:pt-16">
         <div className="flex max-w-3xl flex-col gap-4">
           <Eyebrow>Projects</Eyebrow>
-          <h1 className="text-5xl font-semibold tracking-tight text-balance md:text-6xl">
+          <h1 className="font-display text-5xl leading-[1.02] text-balance md:text-6xl">
             Things I&apos;ve built, <Serif>and what they taught me.</Serif>
           </h1>
           <p className="text-lg text-muted text-pretty">

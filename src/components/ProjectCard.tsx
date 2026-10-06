@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { FeaturedProject } from "@/content/projects";
 import PhoneFrame from "./PhoneFrame";
-import { ButtonLink, Tag } from "./ui";
+import { ButtonLink, HandNote, Tag } from "./ui";
 
 function Visual({ project }: { project: FeaturedProject }) {
   if (project.image?.phone) {
@@ -9,7 +9,7 @@ function Visual({ project }: { project: FeaturedProject }) {
   }
   if (project.image) {
     return (
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl shadow-xl shadow-black/10">
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg shadow-xl shadow-black/10">
         <Image
           src={project.image.src}
           alt={project.image.alt}
@@ -42,15 +42,16 @@ export default function ProjectCard({
 }) {
   const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
-    <article className="grid grid-cols-1 overflow-hidden rounded-3xl border border-line bg-card md:grid-cols-2">
+    <article className="grid grid-cols-1 overflow-hidden rounded-lg border border-line bg-card md:grid-cols-2">
       <div className={`flex min-w-0 flex-col gap-5 p-6 sm:p-7 md:p-10 ${flip ? "md:order-2" : ""}`}>
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-ink">{project.label}</p>
-        <Heading className="text-3xl font-semibold tracking-tight">{project.title}</Heading>
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-accent-ink">{project.label}</p>
+        <Heading className="font-display text-4xl leading-none">{project.title}</Heading>
         <p className="text-muted text-pretty">{project.summary}</p>
         <p className="flex gap-2 text-sm font-medium">
           <span className="mt-[0.45rem] size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
           {project.outcome}
         </p>
+        {project.note && <HandNote tone="teal" className="-rotate-1 text-2xl">{project.note}</HandNote>}
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>

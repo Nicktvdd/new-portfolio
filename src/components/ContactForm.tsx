@@ -85,7 +85,7 @@ export default function ContactForm() {
       ref={form}
       onSubmit={sendEmail}
       noValidate
-      className="flex flex-col gap-7 rounded-3xl border border-line bg-card p-7 text-lg shadow-xl shadow-black/5 md:p-12 lg:self-start"
+      className="flex flex-col gap-7 rounded-lg border border-line bg-card p-7 text-lg shadow-xl shadow-black/5 md:p-12 lg:self-start"
     >
       <p className="font-display text-3xl italic">Dear Nick,</p>
 

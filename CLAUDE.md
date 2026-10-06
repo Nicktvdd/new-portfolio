@@ -33,12 +33,25 @@ There is no test suite. Verify UI changes by building and viewing `out/` in a br
   - Olive: `olive-soft`/`olive-ink` for tags and the project-card visual panels.
   - `slab`/`on-slab`: the deep-teal closing band.
   - `hero-a`/`hero-b`: the portrait arch gradient.
-  - Fonts: `font-display` = Instrument Serif.
-- **Motion language**: one motion everywhere, a fade in plus an 8px rise over 300 ms with `cubic-bezier(0.22, 1, 0.36, 1)` and a 50 ms stagger. There are no exit animations. Page changes use `src/app/template.tsx` (which remounts per navigation) with the CSS `.page-enter` class in `globals.css`. `Reveal.tsx` and the Navbar menu variants mirror the same values. View Transitions were tried and dropped: snapshots of pages with different heights get stretched. Keep new motion consistent with this and fast, because the site is skimmed by recruiters. `html` has `scroll-padding-top` so hash links and post-navigation scrolling clear the sticky header, so don't add `scroll-mt-*` on top of it. The Navbar's mobile menu closes itself on route change because its open state is keyed to the pathname.
+  - Fonts:
+    - `font-display` = Instrument Serif, for all headings, set upright as whole lines. There are no italic accent words; `Serif` in `ui.tsx` is a no-op kept for older headings.
+    - `font-mono` = Geist Mono, for small labels (`Eyebrow`, character-sheet labels).
+    - `font-hand` = Caveat, for short handwritten margin notes (`HandNote`). Keep them rare.
+  - `contour` is the faint topographic line colour (`Contours.tsx`, behind the homepage hero).
+- **Design direction ("trail map + character sheet")**:
+  - The homepage reads like field notes from a trail map: contour lines, Helsinki coordinates and local time (`HelsinkiClock`), and "The route so far" (`RouteMap`, data in `src/content/route.ts`).
+  - The About page is styled as a tabletop RPG character sheet, with an explainer box so non-players get it.
+  - Every RPG label is paired with plain English ("Class · what I do"). Copy must make sense to people who know neither wilderness guiding nor tabletop games.
+  - Avoid generic AI-site tropes: pulsing status dots, gradient washes, italic accent words, rotating badges.
+- **Motion language**: one motion everywhere, a fade in plus an 8px rise over 300 ms with `cubic-bezier(0.22, 1, 0.36, 1)` and a 50 ms stagger. There are no exit animations. Page changes use `src/app/template.tsx` (which remounts per navigation) with the CSS `.page-enter` class in `globals.css`. `Reveal.tsx` and the Navbar menu variants mirror the same values. View Transitions were tried and dropped: snapshots of pages with different heights get stretched. Keep new motion consistent with this and fast, because the site is skimmed by recruiters. There are three deliberate story moments:
+  - `RouteMap` draws the dotted route once in view, through a mask; `.reveal-line` has a no-JS override in `layout.tsx`. Things inside `<mask>` never trigger in-view, so it follows the visible `<svg>`.
+  - `AbilityScores` flicker through d20 faces before landing on the real values. The real value is always in the HTML.
+  - The `D20` icon in `ClosingCta` buttons tumbles on hover or focus (CSS in `globals.css`).
+  - All of them respect reduced motion. `html` has `scroll-padding-top` so hash links and post-navigation scrolling clear the sticky header, so don't add `scroll-mt-*` on top of it. The Navbar's mobile menu closes itself on route change because its open state is keyed to the pathname.
 - **Reveals**: `Reveal` (motion `whileInView`) is for below-the-fold content only. Hero and page headers render without it, since they already get the page-enter animation. A `<noscript>` style in `layout.tsx` un-hides reveal content without JS.
 - **Hero portrait**: `public/portrait.webp` is a transparent cutout (background removed, lightly warmed and sharpened). The arch shape and autumn teal-to-olive gradient are CSS (`rounded-t-full` + `from-hero-a to-hero-b` tokens with dark-mode values) so the colours can change without re-editing the photo. Nick's palette direction is autumn: warm, earthy, muted colours.
 - **Icons**: the favicon (`src/app/icon.png/route.tsx`) and share image (`src/app/og.png/route.tsx`) are `next/og` route handlers exported at build time; the `.png` route folder names give them real file extensions.
-- Pages are server components that export `metadata`; client interactivity is isolated in components (`Reveal`, `RotatingBadge`, `ContactForm`, `CopyEmail`, `Navbar`). Every page except Contact ends with the shared `ClosingCta` band; case studies use `FactList` and `BackLink` from `ui.tsx`.
+- Pages are server components that export `metadata`; client interactivity is isolated in components (`Reveal`, `RouteMap`, `AbilityScores`, `HelsinkiClock`, `ContactForm`, `CopyEmail`, `Navbar`). Every page except Contact ends with the shared `ClosingCta` band; case studies use `FactList` and `BackLink` from `ui.tsx`.
 - **Contact form** uses EmailJS client-side with `NEXT_PUBLIC_SERVICE_ID`, `NEXT_PUBLIC_TEMPLATE_ID`, `NEXT_PUBLIC_PUBLIC_KEY` (in `.env`, gitignored).
 
 ## CV
@@ -49,4 +62,8 @@ There is no test suite. Verify UI changes by building and viewing `out/` in a br
 
 - The About bio keeps a warm, personal first-person voice (emoji, "Hey there!"); headings and SEO copy can be crisper.
 - No testimonials or quotes from other people. Nick doesn't want them.
+- Nick doesn't drink coffee: the invitation is "Grab a tea, roll some dice, build something good."
+- The About page may name Dungeons & Dragons, to explain the character-sheet styling.
+- The About page may mention Nick's wife Sonja.
+- Remo's illustration is by Laura Arroz; keep the credit link.
 - Tiny Tarrasque copy follows that app's trademark rule: say "fifth-edition" / "5e SRD", never "D&D". Its repo is private, so there's no code link.

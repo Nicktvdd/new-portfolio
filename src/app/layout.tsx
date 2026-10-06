@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Caveat, Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import TransitionProvider from "@/components/TransitionProvider";
 import { site } from "@/content/site";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+// Handwritten margin notes, used sparingly.
+const caveat = Caveat({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-caveat" });
 const instrument = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
@@ -54,11 +57,11 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${geist.variable} ${instrument.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${geist.variable} ${geistMono.variable} ${instrument.variable} ${caveat.variable}`}>
       <body className="font-sans">
         <noscript>
           {/* Scroll reveals start hidden and need JS; without it, show everything. */}
-          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}.reveal-line{transform:none!important}`}</style>
         </noscript>
         <a
           href="#main"

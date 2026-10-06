@@ -5,16 +5,17 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { motion, type Variants } from "motion/react";
 import { site } from "@/content/site";
+import HelsinkiClock from "./HelsinkiClock";
 
 const links = [
-  { name: "Home", href: "/" },
+  { name: "Work", href: "/projects" },
+  { name: "The route", href: "/#route" },
   { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
 
 const isActive = (pathname: string, href: string) =>
-  href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+  !href.includes("#") && (pathname === href || pathname.startsWith(`${href}/`));
 
 // Same motion as the rest of the site: fade + rise 8px, 300ms, 50ms stagger.
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -29,9 +30,8 @@ const itemVariants: Variants = {
 
 function Wordmark() {
   return (
-    <Link href="/" className="group text-base font-semibold tracking-tight">
+    <Link href="/" className="font-display text-2xl leading-none hover:text-teal-ink">
       {site.name}
-      <span aria-hidden="true" className="ml-0.5 inline-block size-1.5 rounded-full bg-accent transition-transform group-hover:scale-150" />
     </Link>
   );
 }
@@ -69,14 +69,14 @@ export default function Navbar() {
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
           <Wordmark />
 
-          <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
+          <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  isActive(pathname, link.href) ? "bg-teal text-on-teal" : "text-muted hover:text-ink"
+                className={`border-b-2 py-1 text-sm font-medium transition-colors ${
+                  isActive(pathname, link.href) ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink"
                 }`}
               >
                 {link.name}
@@ -84,13 +84,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-4 text-sm font-medium md:flex">
-            <a className="text-muted hover:text-ink" href={site.linkedin} target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-            <a className="text-muted hover:text-ink" href={site.github} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
+          <div className="hidden lg:block">
+            <HelsinkiClock />
           </div>
 
           <button
@@ -136,7 +131,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpenOn(null)}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-3 font-display text-5xl italic ${active ? "text-ink" : "text-muted"}`}
+                  className={`flex items-center gap-3 font-display text-5xl ${active ? "text-ink" : "text-muted"}`}
                 >
                   {link.name}
                   {active && <span aria-hidden="true" className="size-2.5 rounded-full bg-accent" />}

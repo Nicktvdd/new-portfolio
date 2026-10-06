@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import CopyEmail from "@/components/CopyEmail";
-import { Container, Eyebrow, Serif, StatusPill } from "@/components/ui";
+import { Container, Eyebrow, StatusPill } from "@/components/ui";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -22,9 +22,8 @@ export default function ContactPage() {
     <Container className="grid gap-12 pt-12 md:pt-16 lg:grid-cols-2 lg:gap-16">
       <div className="flex flex-col gap-8">
         <Eyebrow>Contact</Eyebrow>
-        <h1 className="text-4xl font-semibold tracking-tight text-balance md:text-6xl">
-          Grab a coffee, roll some dice, <Serif>build something good.</Serif>{" "}
-          <span aria-hidden="true">☕️🎲</span>
+        <h1 className="font-display text-5xl leading-[1.02] text-balance md:text-6xl">
+          Grab a tea, roll some dice, build something good. <span aria-hidden="true">🍵🎲</span>
         </h1>
         <StatusPill>
           {site.availability} · <span className="whitespace-nowrap">{site.where}</span>

@@ -10,6 +10,8 @@ export type FeaturedProject = {
   cta?: string;
   image?: { src: string; alt: string; phone?: boolean };
   stat?: { value: string; caption: string };
+  /** A short handwritten margin note. */
+  note?: string;
 };
 
 export type ArchiveProject = {
@@ -31,6 +33,7 @@ export const featured: FeaturedProject[] = [
     tags: ["TypeScript", "React Native", "Expo", "AI agents"],
     href: "/projects/tiny-tarrasque",
     cta: "Read the case study",
+    note: "85 test files before anything counts as done",
     image: { src: "/projects/tiny-tarrasque/sheet.webp", alt: "Tiny Tarrasque character sheet on a phone", phone: true },
   },
   {
@@ -43,6 +46,7 @@ export const featured: FeaturedProject[] = [
     tags: ["Django", "React", "TimescaleDB", "GCP"],
     href: "/projects/soil-scout",
     cta: "Read the story",
+    note: "sensors in the ground, data on a screen",
     stat: { value: "6.5M+", caption: "sensor uploads an hour" },
   },
   {

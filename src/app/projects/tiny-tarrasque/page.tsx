@@ -99,7 +99,7 @@ export default function TinyTarrasquePage() {
         <BackLink href="/projects">All projects</BackLink>
         <div className="flex max-w-3xl flex-col gap-5">
           <Eyebrow>Case study · Founder</Eyebrow>
-          <h1 className="text-5xl font-semibold tracking-tight text-balance md:text-7xl">
+          <h1 className="font-display text-5xl leading-[1.02] text-balance md:text-7xl">
             Tiny Tarrasque.
             <br />
             <Serif>A character sheet that keeps up with the table.</Serif>
@@ -151,7 +151,7 @@ export default function TinyTarrasquePage() {
           <div className="grid gap-4 sm:grid-cols-2">
             {features.map((f) => (
               <Reveal key={f.title}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-line bg-card p-6">
+                <div className="flex h-full flex-col gap-2 rounded-lg border border-line bg-card p-6">
                   <h3 className="font-semibold">{f.title}</h3>
                   <p className="text-muted text-pretty">{f.body}</p>
                 </div>
@@ -169,7 +169,7 @@ export default function TinyTarrasquePage() {
           <Reveal>
             <ol className="grid items-stretch gap-3 md:grid-cols-4" aria-label="Data flow">
               {pipeline.map((step, i) => (
-                <li key={step.name} className="relative flex flex-col gap-1 rounded-2xl border border-line bg-card p-5">
+                <li key={step.name} className="relative flex flex-col gap-1 rounded-lg border border-line bg-card p-5">
                   <span className="font-display text-xl italic text-teal-ink">0{i + 1}</span>
                   <span className="font-semibold">{step.name}</span>
                   <span className="text-sm text-muted">{step.note}</span>
@@ -189,7 +189,7 @@ export default function TinyTarrasquePage() {
           <div className="grid gap-4 md:grid-cols-2">
             {decisions.map((d) => (
               <Reveal key={d.title}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl bg-card p-6 ring-1 ring-line md:p-8">
+                <div className="flex h-full flex-col gap-2 rounded-lg bg-card p-6 ring-1 ring-line md:p-8">
                   <h3 className="text-lg font-semibold">{d.title}</h3>
                   <p className="text-muted text-pretty">{d.body}</p>
                 </div>
@@ -198,10 +198,10 @@ export default function TinyTarrasquePage() {
           </div>
         </section>
 
-        <section className="-mx-5 flex flex-col gap-10 bg-slab px-5 py-16 text-on-slab sm:mx-0 sm:rounded-3xl sm:ring-1 sm:ring-line sm:px-10 md:px-14">
+        <section className="-mx-5 flex flex-col gap-10 bg-slab px-5 py-16 text-on-slab sm:mx-0 sm:rounded-lg sm:ring-1 sm:ring-line sm:px-10 md:px-14">
           <div className="flex max-w-2xl flex-col gap-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-on-slab">How it&apos;s built</p>
-            <h2 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-accent-on-slab">How it&apos;s built</p>
+            <h2 className="font-display text-4xl leading-[1.05] text-balance md:text-5xl">
               One person, <Serif>a team of agents,</Serif> and the process that keeps them honest.
             </h2>
           </div>
